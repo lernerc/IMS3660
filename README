@@ -1,1 +1,18 @@
-Describe the things you are making here
+Basic Git Commands 
+Update git dir    
+    git pull origin master
+Add a file to a git repo    
+    git add filename
+Commit your changes locally, and say what your changes were
+    git commit -am "message here"
+Commit your local commits to the repo
+    git push
+
+MYSQL commands
+ssh to cronus
+login to mysql
+    mysql -u username -p
+
+Changing my sql database password
+    set password=password("new password");
+
