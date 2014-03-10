@@ -16,3 +16,13 @@ login to mysql
 Changing my sql database password
     set password=password("new password");
 
+     show databases;
+     USE DATABASE_NAME; (eg. USE lerc3660;)
+     //to delete a table that is created
+     drop table TABLE_NAME;
+     describe TABLE_NAME;   
+     // clears the table  
+     delete from TABLE_NAME;
+     //or
+     delete from TABLE_NAME where selection_predicates;
+     update table_name set attr=val where selection_predicates;
