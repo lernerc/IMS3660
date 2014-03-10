@@ -60,3 +60,21 @@ VALUES ('1234567','harrydog','0');
 
 INSERT INTO CONTAINS (cartID, productNum, barcode, quantity)
 VALUES ('1234567','1234567891','0012345670','40');
+
+INSERT INTO CONTAINS (cartID, productNum, barcode, quantity)
+VALUES ('1234567','1234567892','0012345682','1');
+
+INSERT INTO CART (cartID, createdBy, totalPrice)
+VALUES ('1234568','larrydog','0.00');
+
+INSERT INTO CONTAINS (cartID, productNum, barcode, quantity)
+VALUES ('1234568','1234567891','0012345670','40');
+
+INSERT INTO CONTAINS (cartID, productNum, barcode, quantity)
+VALUES ('1234568','1234567890','0012345678','2');
+
+INSERT INTO PURCHASE_ORDER (orderID, oDate, totalPrice, createdBy, id)
+VALUES ('123456','March 8, 2014','0.00','larrydog','12345678');
+
+INSERT INTO PROCESS (cartID, orderID)
+VALUES ('1234568','123456');
