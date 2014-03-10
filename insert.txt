@@ -11,7 +11,7 @@ INSERT INTO EMPLOYEE (username, id)
 VALUES ('marydog', '12345679');
 
 INSERT INTO USER (username, name, dob, phone, address, password, email)
-VALUES ('harrydog', 'Harry', 'October 11, 2004', '123-456-7981', '1125 Artificial Lane SE Calgary', 'harrypassword', 'harryisababoon@email.com');
+VALUES ('harrydog', 'Harry', '2004-10-11', '123-456-7981', '1125 Artificial Lane SE Calgary', 'harrypassword', 'harryisababoon@email.com');
 
 INSERT INTO CUSTOMER (username)
 VALUES ('harrydog');
