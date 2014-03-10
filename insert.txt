@@ -1,0 +1,62 @@
+INSERT INTO USER(username, name, dob, phone, address, password, email)
+VALUES ('larrydog', 'Larry', '2000-01-01', '123-456-7890', '123 Fake Street NW Lethbridge', 'password', 'larryisadog@email.com');
+
+INSERT INTO MANAGER (username, id)
+VALUES ('larrydog', '12345678');
+
+INSERT INTO USER (username, name, dob, phone, address, password, email)
+VALUES ('marydog', 'Mary', '2002-03-08', '123-456-7980', '125 Fake Street NW Lethbridge', 'marypassword', 'maryisacat@email.com');
+
+INSERT INTO EMPLOYEE (username, id)
+VALUES ('marydog', '12345679');
+
+INSERT INTO USER (username, name, dob, phone, address, password, email)
+VALUES ('harrydog', 'Harry', 'October 11, 2004', '123-456-7981', '1125 Artificial Lane SE Calgary', 'harrypassword', 'harryisababoon@email.com');
+
+INSERT INTO CUSTOMER (username)
+VALUES ('harrydog');
+
+INSERT INTO ITEMS (productNum, barcode, name, description, salesPrice, purchasePrice)
+VALUES ('1234567890','0012345678','MLP Toy Set','My Little Pony Toys','100000','1000');
+
+INSERT INTO ITEMS (productNum, barcode, name, description, salesPrice, purchasePrice)
+VALUES ('1234567891','0012345670','Gummy Bear','Gummy Bear Candy','005','006');
+
+INSERT INTO ITEMS (productNum, barcode, name, description, salesPrice, purchasePrice)
+VALUES ('1234567892','0012345682','Iridium Bar 1KG','1kg bar of Iridium','299999','200000');
+
+INSERT INTO LOCATION (storeNum, name, address, phone, hours, department)
+VALUES ('123','Lethbridge West','4567 University Drive W Lethbridge','234-567-8901','M-F 8:00AM - 6:30PM, SAT 10:00AM - 5:00PM, SUN CLOSED','Toys');
+
+INSERT INTO STORE (storeNum)
+VALUES ('123');
+
+INSERT INTO LOCATION (storeNum, name, address, phone, hours, department)
+VALUES ('124','Lethbridge West','4568 University Drive W Lethbridge','234-567-8901','M-F 7:00AM - 5:30PM, SAT 9:00AM - 4:00PM, SUN CLOSED','Toys');
+
+INSERT INTO WAREHOUSE (storeNum)
+VALUES ('124');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567890','0012345678','123','50');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567890','0012345678','124','150');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567891','0012345670','123','187');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567891','0012345670','124','10000');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567892','0012345682','123','4');
+
+INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
+VALUES ('1234567892','0012345682','124','5');
+
+INSERT INTO CART (cartID, createdBy, totalPrice)
+VALUES ('1234567','harrydog','0');
+
+INSERT INTO CONTAINS (cartID, productNum, barcode, quantity)
+VALUES ('1234567','1234567891','0012345670','40');
