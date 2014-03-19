@@ -12,6 +12,6 @@ echo "<p>the username is $username and the password is $password</p>";
 setcookie("username",$username,time()+3600);
 setcookie("password",$password,time()+3600);
 
-header('Location:index.html');
+header('Location:main.php');
 
 ?>
