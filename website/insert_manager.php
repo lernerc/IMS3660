@@ -7,14 +7,14 @@
 <?php
 if(isset($_COOKIE["username"])){
 
-   echo "<form action=\"deletecustomer.php\" method=post>";
+   echo "<form action=\"insertmanager.php\" method=post>";
 
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
 
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
-   $sql = "select username from CUSTOMER";
+   $sql = "select username from USER";
    $result = mysql_query($sql,$conn);
    if(mysql_num_rows($result) != 0)
    {
@@ -26,11 +26,12 @@ if(isset($_COOKIE["username"])){
 
       }
       echo "</select>";
-      echo "<input type=submit name=\"submit\" value=\"Delete Customer\">";
+      echo "<input type=text name=\"mid\">";
+      echo "<input type=submit name=\"submit\" value=\"Add Manager\">";
    }
    else
    {
-      echo "<p>No Customers! </p>";
+      echo "<p>No Users! </p>";
    }
 
    echo "</form>";

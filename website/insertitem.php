@@ -8,16 +8,17 @@ if (isset($_COOKIE["username"])) {
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
 
-   $sql = "delete from CUSTOMER where username ='$_POST[username]'";
+   
+   $sql = "insert into ITEMS values ('$_POST[pNum]','$_POST[bar]','$_POST[name]','$_POST[desc]','$_POST[sale]','$_POST[purchase]')";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Customer removed!</h3>";
+      echo "<h3> Item added!</h3>";
 
    } else {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Customer $_POST[username] does not exist!</p>";
+	 echo "<p>Item product number $_POST[pNum], or barcode $_POST[bar] already exists!</p>";
       }
       else {
 	 echo "error number $err";

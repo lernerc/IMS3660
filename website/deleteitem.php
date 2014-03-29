@@ -8,16 +8,16 @@ if (isset($_COOKIE["username"])) {
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
 
-   $sql = "delete from CUSTOMER where username ='$_POST[username]'";
+   $sql = "delete from ITEMS where productNum ='$_POST[pNum]' AND barcode = '$_POST[bar]'";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Customer removed!</h3>";
+      echo "<h3> Item removed!</h3>";
 
    } else {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Customer $_POST[username] does not exist!</p>";
+	 echo "<p>Item $_POST[pNum], $_POST[bar] does not exist!</p>";
       }
       else {
 	 echo "error number $err";
