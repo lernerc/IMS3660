@@ -6,28 +6,37 @@ Inventory Management Database
 </title>
 </HEAD>
 <BODY>
-<table style="width:50%">
-<tr style="height:50%">
-  <td><a href="logout.php">Logout</a></td>
-  <td><a href="login.php">Login</a></td>
+
+<?php
+if(isset($_COOKIE["username"])){
+  $username = $_COOKIE["username"];
+   $password = $_COOKIE["password"];
+
+   $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
+   mysql_select_db($username,$conn);
+   
+echo "<table style=\"width:65%\" align=\"center\">
+<tr style=\"height:50%\">
+ <td><a href=\"logout.php\">Logout</a>
+ <a href=\"login.php\">Login</a>$username</td>
 </tr>
 <tr>
     <td>
        <ul>
-          <li><a href="insert_customer.php">Insert Customer</a></li>
-          <li><a href="delete_customer.php">Delete Customer</a></li>
-          <li><a href="insert_employee.php">Insert Employee</a></li>
-          <li><a href="delete_employee.php">Delete Employee</a></li>
-          <li><a href="insert_manager.php">Insert Manager</a></li>
-          <li><a href="delete_manager.php">Delete Manager</a></li>
-          <li><a href="insert_item.php">Insert Item</a></li>
-          <li><a href="delete_item.php">Delete Item</a></li>
-          <li><a href="insert_location.php">Insert Location</a></li>
-          <li><a href="delete_location.php">Delete Location</a></li>
-          <li><a href="insert_store.php">Insert Store</a></li>
-          <li><a href="delete_store.php">Delete Store</a></li>
-          <li><a href="insert_warehouse.php">Insert Warehouse</a></li>
-          <li><a href="delete_warehouse.php">Delete Warehouse</a></li>
+          <li><a href=\"insert_customer.php\">Insert Customer</a></li>
+          <li><a href=\"delete_customer.php\">Delete Customer</a></li>
+          <li><a href=\"insert_employee.php\">Insert Employee</a></li>
+          <li><a href=\"delete_employee.php\">Delete Employee</a></li>
+          <li><a href=\"insert_manager.php\">Insert Manager</a></li>
+          <li><a href=\"delete_manager.php\">Delete Manager</a></li>
+          <li><a href=\"insert_item.php\">Insert Item</a></li>
+          <li><a href=\"delete_item.php\">Delete Item</a></li>
+          <li><a href=\"insert_location.php\">Insert Location</a></li>
+          <li><a href=\"delete_location.php\">Delete Location</a></li>
+          <li><a href=\"insert_store.php\">Insert Store</a></li>
+          <li><a href=\"delete_store.php\">Delete Store</a></li>
+          <li><a href=\"insert_warehouse.php\">Insert Warehouse</a></li>
+          <li><a href=\"delete_warehouse.php\">Delete Warehouse</a></li>
        </ul>
     </td>
     <td>
@@ -35,6 +44,13 @@ Inventory Management Database
        <p>Welcome! Please select a function on the left.</p>
     </td>
 </tr>
-</table>
+    </table>";
+
+    } else {
+   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+
+}
+?>
+    
 </BODY>
 </HTML>
