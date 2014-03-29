@@ -24,6 +24,10 @@ Inventory Management Database
           <li><a href="delete_item.php">Delete Item</a></li>
           <li><a href="insert_location.php">Insert Location</a></li>
           <li><a href="delete_location.php">Delete Location</a></li>
+          <li><a href="insert_store.php">Insert Store</a></li>
+          <li><a href="delete_store.php">Delete Store</a></li>
+          <li><a href="insert_warehouse.php">Insert Warehouse</a></li>
+          <li><a href="delete_warehouse.php">Delete Warehouse</a></li>
        </ul>
     </td>
     <td>
