@@ -20,12 +20,13 @@ Inventory Management Database
           <li><a href="delete_employee.php">Delete Employee</a></li>
           <li><a href="insert_manager.php">Insert Manager</a></li>
           <li><a href="delete_manager.php">Delete Manager</a></li>
-    <li><a href="insert_item.php">Insert Item</a></li>
-    <li><a href="delete_item.php">Delete Item</a></li>
+          <li><a href="insert_item.php">Insert Item</a></li>
+          <li><a href="delete_item.php">Delete Item</a></li>
        </ul>
     </td>
     <td>
-       <h1>Inventory Management Database</h1><p>Welcome!</p>
+       <h1>Inventory Management Database</h1>
+       <p>Welcome! Please select a function on the left.</p>
     </td>
 </tr>
 </table>
