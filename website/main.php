@@ -37,6 +37,8 @@ echo "<table style=\"width:65%\" align=\"center\">
           <li><a href=\"delete_store.php\">Delete Store</a></li>
           <li><a href=\"insert_warehouse.php\">Insert Warehouse</a></li>
           <li><a href=\"delete_warehouse.php\">Delete Warehouse</a></li>
+          <li><a href=\"insert_located.php\">Insert Located</a></li>
+          <li><a href=\"delete_located.php\">Delete Located</a></li>
        </ul>
     </td>
     <td>
