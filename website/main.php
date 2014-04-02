@@ -18,7 +18,7 @@ if(isset($_COOKIE["username"])){
 echo "<table style=\"width:65%\" align=\"center\">
 <tr style=\"height:50%\">
  <td><a href=\"logout.php\">Logout</a>
- <a href=\"login.php\">Login</a>$username</td>
+ <a href=\"login.php\">Login</a> $username</td>
 </tr>
 <tr>
     <td>
