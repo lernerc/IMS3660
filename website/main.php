@@ -23,6 +23,8 @@ echo "<table style=\"width:65%\" align=\"center\">
 <tr>
     <td>
        <ul>
+          <li><a href=\"insert_user.php\">Insert User</a></li>
+          <li><a href=\"delete_user.php\">Delete User</a></li>
           <li><a href=\"insert_customer.php\">Insert Customer</a></li>
           <li><a href=\"delete_customer.php\">Delete Customer</a></li>
           <li><a href=\"insert_employee.php\">Insert Employee</a></li>
