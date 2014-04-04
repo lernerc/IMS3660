@@ -43,8 +43,10 @@ echo "<table style=\"width:65%\" align=\"center\">
           <li><a href=\"delete_cart.php\">Delete Cart</a></li>
           <li><a href=\"insert_purchaseorder.php\">Insert Purchase Order</a></li>
           <li><a href=\"delete_purchaseorder.php\">Delete Purchase Order</a></li>
-          <li><a href=\"insert_located.php\">Insert Located</a></li>
+    <li><a href=\"insert_contains.php\">Insert an Item into a Cart</a></li>
+          <li><a href=\"delete_contains.php\">Delete an Item from a Cart</a></li>          <li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>
+
        </ul>
     </td>
     <td>
