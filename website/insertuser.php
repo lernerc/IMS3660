@@ -17,7 +17,7 @@ if (isset($_COOKIE["username"])) {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Username $_POST[sNum] already exists!</p>";
+	 echo "<p>Username $_POST[username] already exists!</p>";
       }
       else {
 	 echo "error number $err";

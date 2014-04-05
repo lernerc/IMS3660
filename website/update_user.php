@@ -95,7 +95,7 @@ if(isset($_COOKIE["username"])){
 	    echo "<input type=submit name=\"submit\" value=\"Update Address\">";
 	    echo "</form>";
 	    echo "<form action=\"updateuserpassword.php\" method=post>";
-	    echo "Password: <input type=text name=\"password\" value=\"$val[5]\">";
+	    echo "Password: <input type=password name=\"password\" value=\"$val[5]\">";
 	    echo "<input type=submit name=\"submit\" value=\"Update Password\">";
 	    echo "</form>";
 	    echo "<form action=\"updateuseremail.php\" method=post>";
@@ -103,6 +103,8 @@ if(isset($_COOKIE["username"])){
 	    echo "<input type=submit name=\"submit\" value=\"Update Email\">";
 	    echo "</form>";
       }
+      echo "<p><a type=button href=\"deleteuserself.php\">Delete Account</a></p>";
+      echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
    }
    else
    {

@@ -24,8 +24,7 @@ if(isset($_COOKIE["username"])){
 <tr>
     <td>
        <ul>
-<li><a href=\"update_user.php\">Update User</a></li>
-          <li><a href=\"insert_user.php\">Insert User</a></li>
+          <li><a href=\"update_user.php\">Update Profile</a></li>
           <li><a href=\"delete_user.php\">Delete User</a></li>
           <li><a href=\"insert_customer.php\">Insert Customer</a></li>
           <li><a href=\"delete_customer.php\">Delete Customer</a></li>

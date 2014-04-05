@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1>Inventory Management System Database - Login</h1>
+<h1>Inventory Management System User - Login</h1>
 <a href="insert_user.php">Sign-Up</a>
 <form action="subsetpass.php" method=post>
     IMS username: <input type=text name="subusername" size=8>
