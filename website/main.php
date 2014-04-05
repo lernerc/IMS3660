@@ -11,18 +11,20 @@ Inventory Management Database
 if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
+   if(isset($_COOKIE["subusername"])){
+   $subusername = $_COOKIE["subusername"];
    
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
    
    echo "<table style=\"width:65%\" align=\"center\">
 <tr style=\"height:50%\">
- <td><a href=\"logout.php\">Logout</a>
- <a href=\"login.php\">Login</a> $username</td>
+ <td><a href=\"sublogout.php\">Logout</a> Database: $username, User: $subusername</td>
 </tr>
 <tr>
     <td>
        <ul>
+<li><a href=\"update_user.php\">Update User</a></li>
           <li><a href=\"insert_user.php\">Insert User</a></li>
           <li><a href=\"delete_user.php\">Delete User</a></li>
           <li><a href=\"insert_customer.php\">Insert Customer</a></li>
@@ -58,9 +60,13 @@ if(isset($_COOKIE["username"])){
     </td>
 </tr>
     </table>";
-
-    } else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+   }
+   else
+   {
+      echo "<h3>You are not logged in to a user!</h3><p> <a href=\"sublogin.php\">Login First</a></p>";
+   }
+} else {
+   echo "<h3>You are not logged in to a database!</h3><p> <a href=\"login.php\">Login First</a></p>";
 
 }
 ?>
