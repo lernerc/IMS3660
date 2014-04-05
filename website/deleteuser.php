@@ -17,9 +17,11 @@ if (isset($_COOKIE["username"])) {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Username $_POST[username] does not exist!</p>";
+	 echo "<h3>Username $_POST[username] does not exist!</h3>";
       }
-      else {
+      else if($err == 1451) {
+	 echo "<h3>User $_POST[username] has existing Relationships, so you cannot delete it</h3>";
+      } else {
 	 echo "error number $err";
       }
 

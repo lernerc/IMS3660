@@ -22,8 +22,9 @@ if (isset($_COOKIE["username"])) {
       if($err == 1062)
       {
 	 echo "<h3>Item does not exist in Cart!</h3>";
-      }
-      else {
+      } else if($err == 1451) {
+	 echo "<h3>Item $it[2] in cart $_POST[carts] has existing Relationships, so you cannot delete it</h3>";
+      } else {
 	 echo "error number $err";
       }
 

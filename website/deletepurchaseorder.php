@@ -18,8 +18,9 @@ if (isset($_COOKIE["username"])) {
       if($err == 1062)
       {
 	 echo "<p>Order ID $_POST[oid] does not exist!</p>";
-      }
-      else {
+      } else if($err == 1451) {
+	 echo "<h3>Order ID $_POST[oid] has existing Relationships, so you cannot delete it</h3>";
+      } else {
 	 echo "error number $err";
       }
 

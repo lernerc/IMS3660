@@ -18,8 +18,9 @@ if (isset($_COOKIE["username"])) {
       if($err == 1062)
       {
 	 echo "<p>Customer $_POST[username] does not exist!</p>";
-      }
-      else {
+      } else if($err == 1451) {
+	 echo "<h3>Customer $_POST[username] has existing Relationships, so you cannot delete it</h3>";
+      } else {
 	 echo "error number $err";
       }
 

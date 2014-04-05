@@ -7,8 +7,8 @@ if (isset($_COOKIE["username"])) {
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
-
-   $sql = "delete from ITEMS where productNum ='$_POST[pNum]' AND barcode = '$_POST[bar]'";
+   $it=explode(',',$_POST[items]);
+   $sql = "delete from ITEMS where productNum ='$it[0]' AND barcode = '$it[1]'";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Item removed!</h3>";
@@ -17,9 +17,10 @@ if (isset($_COOKIE["username"])) {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Item $_POST[pNum], $_POST[bar] does not exist!</p>";
-      }
-      else {
+	 echo "<p>Item $it[2] does not exist!</p>";
+      } else if($err == 1451) {
+	 echo "<h3>Item $it[2] has existing Relationships, so you cannot delete it</h3>";
+      } else {
 	 echo "error number $err";
       }
 

@@ -18,9 +18,11 @@ if (isset($_COOKIE["username"])) {
       }
    } else {
       $err = mysql_errno();
-    
+      if($err == 1451) {
+	 echo "<h3>Cart $_POST[carts] and order $_POST[order] has existing Relationships, so you cannot delete it</h3>";
+      } else {          
 	 echo "error number $err";
-    
+      }
    }
    echo "<a href=\"main.php\">Return</a> to Home Page.";
 } else {
