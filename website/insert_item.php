@@ -19,8 +19,8 @@ if(isset($_COOKIE["username"])){
    echo "Barcode: <input type=text name=\"bar\">";
    echo "Name: <input type=text name=\"name\">";
    echo "Description: <input type=text name=\"desc\">";
-   echo "Sales Price: <input type=text name=\"sale\">";
-   echo "Purchase Price: <input type=text name=\"purchase\">";
+   echo "Sales Price (cents): <input type=text name=\"sale\">";
+   echo "Purchase Price (cents): <input type=text name=\"purchase\">";
    echo "<input type=submit name=\"submit\" value=\"Add Item\">";
    echo "</form>";
 } else {
