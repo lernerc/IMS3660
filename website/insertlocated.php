@@ -7,8 +7,8 @@ if (isset($_COOKIE["username"])) {
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
-
-   $sql = "insert into LOCATED values ('$_POST[pNum]','$_POST[bar]','$_POST[sNum]','$_POST[quant]')";
+   $item = explode(',', $_POST[it]);
+   $sql = "insert into LOCATED values ('$item[0]','$item[1]','$_POST[sNum]','$_POST[quant]')";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Located added!</h3>";

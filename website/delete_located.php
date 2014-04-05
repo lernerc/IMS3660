@@ -27,31 +27,18 @@ if(isset($_COOKIE["username"])){
       }
       echo "</select>";
 
-      $sql1 = "select productNum from ITEMS";
+      $sql1 = "select productNum, barcode, name from ITEMS";
       $result1 = mysql_query($sql1,$conn);
       if(mysql_num_rows($result1) != 0)
       {
-	 echo "Item Product Number: <select name=\"pNum\">";
+	 echo "Item Product Number: <select name=\"item\">";
 	 
 	 while($val1 = mysql_fetch_row($result1))
 	 {
-	    echo "<option value=$val1[0]>$val1[0]</option>";
+	    echo "<option value=$val1[0],$val1[1]>$val1[2]</option>";
 	    
 	 }
 	 echo "</select>";
-	 $sql2 = "select barcode from ITEMS";
-	 $result2 = mysql_query($sql2,$conn);
-	 if(mysql_num_rows($result2) != 0)
-	 {
-	    echo "Item Barcode: <select name=\"bar\">";
-	    
-	    while($val2 = mysql_fetch_row($result2))
-	    {
-	       echo "<option value=$val2[0]>$val2[0]</option>";
-	       
-	    }
-	    echo "</select>";
-	 }
       }
 
       echo "<input type=submit name=\"submit\" value=\"Delete Located\">";

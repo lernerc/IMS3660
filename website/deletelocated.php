@@ -7,8 +7,8 @@ if (isset($_COOKIE["username"])) {
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
-
-   $sql = "delete from LOCATED where productNum ='$_POST[pNum]' AND barcode = '$_POST[bar]' AND storeNum = '$_POST[sNum]'";
+   $it=explode(',',$_POST[item]);
+   $sql = "delete from LOCATED where productNum ='$it[0]' AND barcode = '$it[1]' AND storeNum = '$_POST[sNum]'";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Located removed!</h3>";
