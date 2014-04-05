@@ -11,8 +11,10 @@ if (isset($_COOKIE["username"])) {
    $sql = "delete from STORE where storeNum ='$_POST[sNum]'";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Store removed!</h3>";
-
+      if(mysql_affected_rows() > 0)
+	 echo "<h3> Store removed!</h3>";
+      else
+	 echo "<h3>Store does not exist</h3>";
    } else {
       $err = mysql_errno();
       if($err == 1062)

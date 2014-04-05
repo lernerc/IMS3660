@@ -11,8 +11,10 @@ if (isset($_COOKIE["username"])) {
    $sql = "delete from PURCHASE_ORDER where orderID ='$_POST[oid]'";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Purchase Order removed!</h3>";
-
+      if(mysql_affected_rows() > 0)
+	 echo "<h3> Purchase Order removed!</h3>";
+      else
+	 echo "<h3>Purchase Order does not exist</h3>";
    } else {
       $err = mysql_errno();
       if($err == 1062)

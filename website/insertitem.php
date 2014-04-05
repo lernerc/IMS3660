@@ -9,7 +9,7 @@ if (isset($_COOKIE["username"])) {
    mysql_select_db($username,$conn) or die(mysql_error());
 
    
-   $sql = "insert into ITEMS values ('$_POST[pNum]','$_POST[bar]','$_POST[name]','$_POST[desc]','$_POST[sale]','$_POST[purchase]')";
+   $sql = "insert into ITEMS values ($_POST[pNum],$_POST[bar],'$_POST[name]','$_POST[desc]','$_POST[sale]','$_POST[purchase]')";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Item added!</h3>";

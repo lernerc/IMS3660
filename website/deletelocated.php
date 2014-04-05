@@ -12,8 +12,10 @@ if (isset($_COOKIE["username"])) {
    
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Located removed!</h3>";
-
+      if(mysql_affected_rows() > 0)
+	 echo "<h3> Located removed!</h3>";
+      else
+	 echo "<h3>Location does not exist</h3>";
    } else {
       $err = mysql_errno();
       if($err == 1062)
