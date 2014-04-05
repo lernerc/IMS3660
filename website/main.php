@@ -8,14 +8,18 @@ Inventory Management Database
 <BODY>
 
 <?php
+ /*ini_set('display_errors','1');
+   ini_set('display_startup_errors', '1');
+   error_reporting(E_ALL);
+ */
 if(isset($_COOKIE["username"])){
-  $username = $_COOKIE["username"];
+   $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
-
+   
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
    
-echo "<table style=\"width:65%\" align=\"center\">
+   echo "<table style=\"width:65%\" align=\"center\">
 <tr style=\"height:50%\">
  <td><a href=\"logout.php\">Logout</a>
  <a href=\"login.php\">Login</a> $username</td>
@@ -43,8 +47,11 @@ echo "<table style=\"width:65%\" align=\"center\">
           <li><a href=\"delete_cart.php\">Delete Cart</a></li>
           <li><a href=\"insert_purchaseorder.php\">Insert Purchase Order</a></li>
           <li><a href=\"delete_purchaseorder.php\">Delete Purchase Order</a></li>
-    <li><a href=\"insert_contains.php\">Insert an Item into a Cart</a></li>
-          <li><a href=\"delete_contains.php\">Delete an Item from a Cart</a></li>          <li><a href=\"insert_located.php\">Insert Located</a></li>
+          <li><a href=\"insert_contains.php\">Insert an Item into a Cart</a></li>
+          <li><a href=\"delete_contains.php\">Delete an Item from a Cart</a></li>
+          <li><a href=\"insert_process.php\">Insert a Cart into an Order</a></li>
+          <li><a href=\"delete_process.php\">Delete a Cart from an Order</a></li>
+          <li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>
 
        </ul>
