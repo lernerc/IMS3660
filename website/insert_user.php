@@ -30,10 +30,10 @@ if(isset($_COOKIE["username"])){
    echo "Phone: <input type=text name=\"ph\"><br>";
    echo "Address: <input type=text name=\"address\"><br>";
    echo "Email: <input type=text name=\"email\"><br>";
-   echo "<input type=submit name=\"submit\" value=\"Add User\">";
+   echo "<input type=submit name=\"submit\" value=\"Sign-Up\">";
    echo "</form>";
 } else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+   echo "<h3>You are not logged in to a Database!</h3><p> <a href=\"login.php\">Login First</a></p>";
    
 }
 ?>

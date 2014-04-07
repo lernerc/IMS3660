@@ -4,15 +4,7 @@
 
 
 
- <?php
-if(isset($_COOKIE["username"])){
-   if(isset($_COOKIE["subusername"])){
-      $subusername = $_COOKIE["subusername"];
-      $username = $_COOKIE["username"];
-      $password = $_COOKIE["password"];
-      
-      $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
-      mysql_select_db($username,$conn);
+<?php
 
       include 'topmenu.php';
 
@@ -113,15 +105,7 @@ if(isset($_COOKIE["username"])){
       echo "<p><a type=button href=\"deleteuserself.php\">Delete Account</a></p>";
       echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
       echo "</td></tr></table>";
-  }
-   else
-   {
-      echo "<h3>You are not logged in to a user!</h3><p> <a href=\"sublogin.php\">Login First</a></p>";
-   }
-} else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
-   
-}
+
 ?>
 
 

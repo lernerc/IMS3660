@@ -12,7 +12,8 @@ if(isset($_COOKIE["username"])){
 <tr>
 <td>
  <ul>
-          <li><a href=\"my_carts.php\">My Carts</a></li>
+          <li><a href=\"my_carts.php\">Carts</a></li>
+          <li><a href=\"show_stores.php\">Stores</a></li>
           <li><a href=\"delete_user.php\">Delete User</a></li>
           <li><a href=\"insert_customer.php\">Insert Customer</a></li>
           <li><a href=\"delete_customer.php\">Delete Customer</a></li>

@@ -1,14 +1,11 @@
 <?php
+include 'topmenu.php';
 
-if (isset($_COOKIE["username"])) {
-   $username = $_COOKIE["username"];
-   $password = $_COOKIE["password"];
-   if(isset($_COOKIE["subusername"])){
-      $subusername = $_COOKIE["subusername"];
-      
-      $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
-	 die(mysql_error());
-      mysql_select_db($username,$conn) or die(mysql_error());
+echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+include 'sidemenu.php';
+echo "</td>";
+
+echo "<td>";
       $dateB = date("Y-m-d",mktime(0,0,0,$_POST[month], $_POST[day],$_POST[year]));
       $sql = "update USER set dob='$dateB' where username='$subusername'";
       if(mysql_query($sql,$conn))
@@ -19,15 +16,9 @@ if (isset($_COOKIE["username"])) {
 	 $err = mysql_errno();
 	 echo "error number $err";
       }
-      echo "<a href=\"main.php\">Return</a> to Home Page.";
-   }
-   else
-   {
-      echo "<h3>You are not logged in to a user!</h3><p> <a href=\"sublogin.php\">Login First</a></p>";
-   }
-} else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+echo "<a href=\"update_user.php\">Return</a> to Profile Page.";
+echo "<p><a href=\"main.php\">Home</a></p>";
+echo "</td></tr></table>";
 
-}
 
 ?>
