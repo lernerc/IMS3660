@@ -1,12 +1,3 @@
-<!DOCTYPE>
-<HTML>
-<HEAD>
-<title>
-Inventory Management Database
-</title>
-</HEAD>
-<BODY>
-
 <?php
 if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
@@ -17,18 +8,18 @@ if(isset($_COOKIE["username"])){
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
 
-   include 'topmenu.php';
-
-   echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
-   include 'sidemenu.php';
-   echo "</td>";
-   
-   echo "<td>
-       <h1>Inventory Management Database</h1>
-       <p>Welcome! Please select a function on the left.</p>
-    </td>
+   echo "<table width=\"70%\" align=\"center\">
+<tr>
+<td width=\"40%\">
+<a href=\"sublogout.php\">Logout</a>
+</td>
+<td width=\"45%\">Database: $username,
+</td>
+<td>User: <a href=\"update_user.php\">$subusername</a>
+</td>
 </tr>
-    </table>";
+</table>";
+   
    }
    else
    {
@@ -39,6 +30,3 @@ if(isset($_COOKIE["username"])){
 
 }
 ?>
-    
-</BODY>
-</HTML>

@@ -4,7 +4,7 @@
 
 
 
-<?php
+ <?php
 if(isset($_COOKIE["username"])){
    if(isset($_COOKIE["subusername"])){
       $subusername = $_COOKIE["subusername"];
@@ -13,9 +13,16 @@ if(isset($_COOKIE["username"])){
       
       $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
       mysql_select_db($username,$conn);
-      
-      echo "<h3>Update a User</h3>";
-      echo "Username: $subusername";
+
+      include 'topmenu.php';
+
+      echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+      include 'sidemenu.php';
+      echo "</td>";
+
+      echo "<td>";
+      echo "<h3>Profile</h3>";
+      echo "Username: $subusername<br><br>";
       $sql = "select * from USER where username='$subusername'";
       $result = mysql_query($sql,$conn);
       while($val = mysql_fetch_row($result))
@@ -105,7 +112,8 @@ if(isset($_COOKIE["username"])){
       }
       echo "<p><a type=button href=\"deleteuserself.php\">Delete Account</a></p>";
       echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
-   }
+      echo "</td></tr></table>";
+  }
    else
    {
       echo "<h3>You are not logged in to a user!</h3><p> <a href=\"sublogin.php\">Login First</a></p>";
