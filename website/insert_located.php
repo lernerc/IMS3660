@@ -36,7 +36,7 @@ if(isset($_COOKIE["username"])){
 	 
 	 while($val1 = mysql_fetch_row($result1))
 	 {
-	    echo "<option value=$val1[0],$val1[1]>$val1[2]</option>";
+	    echo "<option value=$val1[0],$val1[1],$val1[2]>$val1[2]</option>";
 	    
 	 }
 	 echo "</select>";

@@ -26,7 +26,7 @@ if(isset($_COOKIE["username"])){
 	 echo "</select>";
 	 echo "Item: <select name =\"item\">";
 	 while($val = mysql_fetch_row($resultItems)) {
-	    echo "<option value = $val[1],$val[2]>$val[0]</option>";
+	    echo "<option value = $val[1],$val[2],$val[0]>$val[0]</option>";
 	 }
 	 echo "</select>";
 	 echo "quantity: <input type=number name=\"num\">";
