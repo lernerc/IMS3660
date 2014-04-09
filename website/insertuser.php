@@ -17,13 +17,14 @@ if (isset($_COOKIE["username"])) {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<p>Username $_POST[sNum] already exists!</p>";
+	 echo "<p>Username $_POST[username] already exists!</p>";
       }
       else {
 	 echo "error number $err";
       }
 
    }
+   echo "<a href=\"sublogout.php\">Login</a><br>";
    echo "<a href=\"main.php\">Return</a> to Home Page.";
 } else {
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
