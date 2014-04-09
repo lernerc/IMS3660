@@ -15,7 +15,7 @@ if(isset($_COOKIE["username"])){
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
    echo "<h3>Insert a Location</h3>";
-   echo "Store Number: <input type=text name=\"sNum\">";
+   echo "Store Number: <input type=number name=\"sNum\">";
    echo "Name: <input type=text name=\"name\">";
    echo "Address: <input type=text name=\"addr\">";
    echo "Phone: <input type=text name=\"ph\">";
