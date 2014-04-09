@@ -14,7 +14,7 @@ if(isset($_COOKIE["username"])){
 
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
-   $sql = "select cartID from CART";
+   $sql = "select cartID, createdby from CART";
    $result = mysql_query($sql,$conn);
    if(mysql_num_rows($result) != 0)
    {
@@ -22,7 +22,7 @@ if(isset($_COOKIE["username"])){
 
       while($val = mysql_fetch_row($result))
       {
-	 echo "<option value=$val[0]>$val[0]</option>";
+	 echo "<option value=$val[0]>$val[0], $val[1]</option>";
 
       }
       echo "</select>";

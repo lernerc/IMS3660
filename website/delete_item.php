@@ -16,9 +16,9 @@ if(isset($_COOKIE["username"])){
    $sql = "select productNum, barcode, name from ITEMS";
    $result = mysql_query($sql,$conn);
    if(mysql_num_rows($result) != 0) {
-      echo "Item Product Number: <select name=\"item\">";
+      echo "Item Name: <select name=\"item\">";
       while($val = mysql_fetch_row($result)) {
-	 echo "<option value=$val[0],$val[1],$val[2]>$val[0]</option>";
+	 echo "<option value=$val[0],$val[1],$val[2]>$val[2]</option>";
       }
       echo "</select>";
       echo "<input type=submit name=\"submit\" value=\"Delete Item\">";

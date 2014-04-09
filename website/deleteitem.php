@@ -9,7 +9,6 @@ if (isset($_COOKIE["username"])) {
    mysql_select_db($username,$conn) or die(mysql_error());
    $it=explode(',',$_POST[item]);
    $sql = "delete from ITEMS where productNum=$it[0] and barcode=$it[1]";
-   echo($sql);
    if(mysql_query($sql,$conn)) {
       if(mysql_affected_rows() > 0)
 	 echo "<h3> Item removed!</h3>";
