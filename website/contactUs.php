@@ -1,4 +1,4 @@
-<h2>Contact Us Form</h2>
+
 <?php
 
 include 'topmenu.php';
@@ -6,6 +6,8 @@ echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
+echo '<td valign="top">';
+echo '<h2>Contact Us Form</h2>';
 // display form if user has not clicked submit
 if (!isset($_POST["submit"]))
   {
@@ -34,6 +36,6 @@ else
     echo "Thank you for sending us feedback";
     }
   }
-
+echo '</td>';
 include 'footer.php';
 ?>
