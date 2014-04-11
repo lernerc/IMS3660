@@ -10,6 +10,8 @@ $sql = "update CONTAINS set quantity='$_POST[amt]' where cartID='$_POST[carts]' 
 if(mysql_query($sql,$conn))
 {
 	 echo "<h3> Quantity updated!</h3>";
+	 $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNum and I.barcode = C.barcode and C.cartID = '$_POST[carts]') where CART.cartid='$_POST[carts]'";
+mysql_query($update_total, $conn);
 	 
 } else {
    $err = mysql_errno();
