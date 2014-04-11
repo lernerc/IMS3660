@@ -52,7 +52,7 @@ if(isset($_COOKIE["username"])){
       }
       else if(mysql_num_rows($result3) != 0)
       {
-	 $employee == TRUE;
+	 $employee = TRUE;
 	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>";
       }
