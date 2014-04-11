@@ -27,3 +27,5 @@ Changing my sql database password
      delete from TABLE_NAME where selection_predicates;
      update table_name set attr=val where selection_predicates;\
      alter table TABLE_NAME modify VARIABLE_NAME VARIABLE_TYPE;
+
+rsync -rtv source destination

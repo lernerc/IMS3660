@@ -17,7 +17,6 @@ if (isset($_COOKIE["username"])) {
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Purchase Order added!</h3>";
-
    } else {
       $err = mysql_errno();
       if($err == 1062)
