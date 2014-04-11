@@ -19,6 +19,8 @@ if(isset($_COOKIE["username"])){
       $employeeCheck = "select * from EMPLOYEE where username='$subusername'";
       $result2 = mysql_query($managerCheck, $conn);
       $result3 = mysql_query($employeeCheck, $conn);
+      $manager = FALSE;
+      $employee = FALSE;
       if(mysql_num_rows($result2) != 0)
       {
 	 $manager = TRUE;
@@ -48,8 +50,9 @@ if(isset($_COOKIE["username"])){
           <li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>";
       }
-      else if($employee == TRUE)
+      else if(mysql_num_rows($result3) != 0)
       {
+	 $employee == TRUE;
 	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>";
       }
