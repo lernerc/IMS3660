@@ -50,6 +50,26 @@ if($employee or $manager) {
       echo "</tr>";
    }
    echo "</table>";
+
+   echo "<h3>Customers</h3>";
+   $sql = "select name, address, phone, email from USER U, CUSTOMER C where C.username = U.username";
+   $result = mysql_query($sql,$conn);
+   echo "<table><tr>";
+   echo "<th>name</th>";
+   echo "<th>address</th>";
+   echo "<th>phone</th>";
+   echo "<th>email</th>";
+   echo "</tr>";
+   while($val = mysql_fetch_row($result))
+   {
+      echo "<tr>";
+      echo "<td>$val[0]</td>";
+      echo "<td>$val[1]</td>";
+      echo "<td>$val[2]</td>";
+      echo "<td>$val[3]</td>";
+      echo "</tr>";
+   }
+   echo "</table>";
 }
 
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
