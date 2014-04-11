@@ -27,6 +27,8 @@ if (isset($_COOKIE["username"])) {
 	 $sql = "insert into CONTAINS values ('$_POST[cid]','$item[0]','$item[1]','$_POST[num]')";
 	 if(mysql_query($sql,$conn)) {
 	    echo "<h3> Item added into Cart!</h3>";
+	    $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNUM and I.barcode = C.barcode and C.cartID = '$_POST[cid]') where CART.cartid='$_POST[cid]'";
+	    mysql_query($update_total);
 	 } else {
 	    $err = mysql_errno();
 	    if($err == 1062) {

@@ -14,6 +14,8 @@ if (isset($_COOKIE["username"])) {
    {
       if(mysql_affected_rows() > 0) {
 	 echo "<h3>Item removed from Cart!</h3>";
+	 $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNUM and I.barcode = C.barcode and C.cartID = '$_POST[carts]') where CART.cartid='$_POST[carts]'";
+	 mysql_query($update_total);
       } else {
 	 echo "<h3>Item does not exist in Cart!</h3>";
       }
