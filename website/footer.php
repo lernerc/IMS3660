@@ -8,10 +8,10 @@
     <a href="http://moodle.uleth.ca/">
     | CS3660 on Moodle
     </a>
-    <a href="aboutUs.php" >
+    <a href="aboutus.php" >
     | About Us
     </a>
-    <a href="contactUs.php">
+    <a href="contactus.php">
     | Contact Us |
     </a>
     </p>

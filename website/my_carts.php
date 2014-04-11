@@ -1,7 +1,3 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
  <?php
 
 include 'topmenu.php';
@@ -38,6 +34,3 @@ echo "</td></tr></table>";
 
 include 'footer.php';
 ?>
-
-</body>
-</html>
