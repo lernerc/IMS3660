@@ -1,12 +1,14 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
-
 
 <?php
-if(isset($_COOKIE["username"])){
+include 'topmenu.php';
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 
+include 'sidemenu.php';
+echo "</td>";
+
+echo "<td valign='top'>";
+if(isset($_COOKIE["username"])){
+   echo "<h2>Delete an Employee</h2>";
    echo "<form action=\"deleteemployee.php\" method=post>";
 
    $username = $_COOKIE["username"];
@@ -38,9 +40,7 @@ if(isset($_COOKIE["username"])){
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
 
 }
+echo '</td>';
+include 'footer.php';
 ?>
 
-
-
-</body>
-</html>
