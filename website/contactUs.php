@@ -1,5 +1,11 @@
 <h2>Contact Us Form</h2>
 <?php
+
+include 'topmenu.php';
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
+include 'sidemenu.php';
+echo "</td>";
+
 // display form if user has not clicked submit
 if (!isset($_POST["submit"]))
   {
@@ -28,4 +34,6 @@ else
     echo "Thank you for sending us feedback";
     }
   }
+
+include 'footer.php';
 ?>

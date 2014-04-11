@@ -6,11 +6,11 @@
 
 include 'topmenu.php';
 
-echo "<table width=\"70%\" align=\"center\"><tr><td valign=\"top\" width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
-echo "<td>";
+echo "<td valign='top'>";
 echo "<h3>My Carts</h3>";
 echo "<a href=\"insert_cartself.php\">New Cart</a><br><br>";
 $sql = "select * from CART where createdBy='$subusername'";
@@ -35,6 +35,8 @@ echo "</table>";
 
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
 echo "</td></tr></table>";
+
+include 'footer.php';
 ?>
 
 </body>
