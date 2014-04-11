@@ -12,8 +12,10 @@ echo "</td>";
 if($employee or $manager) {
    echo "<td valign = 'top'>";
    echo "<h3>Employees</h3>";
-   if($manager)
-      echo "<a href=\"insert_employee.php\">New Employee</a><br><br>";
+   if($manager) {
+      echo "<a href=\"insert_employee.php\">New Employee</a><br>";
+      echo "<a href=\"delete_employee.php\">Delete Employee</a>";
+   }
    $sql = "select name, phone, email from USER U where exists (select * from EMPLOYEE E where E.username = U.username)";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";
@@ -32,8 +34,10 @@ if($employee or $manager) {
    echo "</table>";
 
    echo "<h3>Managers</h3>";
-   if($manager)
-      echo "<a href=\"insert_manager.php\">New Manager</a><br><br>";
+   if($manager) {
+      echo "<a href=\"insert_manager.php\">New Manager</a><br>";
+      echo "<a href=\"delete_manager.php\">Delete Manager</a>";
+   }
    $sql = "select name, phone, email from USER U where exists (select * from MANAGER M where M.username = U.username)";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";
