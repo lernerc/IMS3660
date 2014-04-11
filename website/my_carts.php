@@ -22,17 +22,14 @@ echo "<th>Total Price</th>";
 echo "</tr>";
 while($val = mysql_fetch_row($result))
 {
+   echo "<form action=\"update_cart.php\" method=post>";
    echo "<tr>";
    echo "<td>$val[0]</td>";
    echo "<td>$val[1]</td>";
    echo "<td>$val[2]</td>";
-   echo "<form action=\"update_cart.php\" method=post>";
    echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"Edit Cart\"></td>";
-   echo "</form>";
-   echo "<form action=\"deletecart.php\" method=post>";
-   echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"Delete Cart\"></td>";
-   echo "</form>";
    echo "</tr>";
+   echo "</form>";
 }
 echo "</table>";
 
