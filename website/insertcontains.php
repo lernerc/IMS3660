@@ -26,11 +26,10 @@ echo "<td>";
 	 echo "<h3>There are only $num[0] of $item[2] available!</h3>";
       } else {   
 	 $sql = "insert into CONTAINS values ('$_POST[cid]','$item[0]','$item[1]','$_POST[num]')";
-	 //echo $sql;
 	 if(mysql_query($sql,$conn)) {
 	    echo "<h3> Item added into Cart!</h3>";
-	    $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNUM and I.barcode = C.barcode and C.cartID = '$_POST[cid]') where CART.cartid='$_POST[cid]'";
-	    mysql_query($update_total);
+	    $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNUM and I.barcode = C.barcode and C.cartID = '$_POST[cid]') where CART.cartID='$_POST[cid]'";
+	    mysql_query($update_total, $conn);
 	 } else {
 	    $err = mysql_errno();
 	    if($err == 1062) {

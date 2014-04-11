@@ -29,7 +29,7 @@ if(isset($_COOKIE["username"])){
 	    echo "<option value = $val[1],$val[2],$val[0]>$val[0]</option>";
 	 }
 	 echo "</select>";
-	 echo "quantity: <input type=number name=\"num\">";
+	 echo "quantity: <input type=number name=\"num\" value=1>";
 	 echo "<input type=submit name=\"submit\" value=\"Add Item\">";
       } else {
 	 echo "<h3>There are no Items to put in Carts</h3>";
