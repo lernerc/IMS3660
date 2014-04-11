@@ -46,9 +46,19 @@ if(isset($_COOKIE["username"])){
           <li><a href=\"insert_process.php\">Insert a Cart into an Order</a></li>
           <li><a href=\"delete_process.php\">Delete a Cart from an Order</a></li>
           <li><a href=\"insert_located.php\">Insert Located</a></li>
-          <li><a href=\"delete_located.php\">Delete Located</a></li>
+          <li><a href=\"delete_located.php\">Delete Located</a></li>";
+      }
+      else if($employee == TRUE)
+      {
+	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
+          <li><a href=\"delete_located.php\">Delete Located</a></li>";
+      }
+      else
+      {
 
-       </ul>
+      }
+
+       echo "</ul>
 </td>
 </tr>
 </table>";
