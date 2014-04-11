@@ -13,7 +13,8 @@ if(isset($_COOKIE["username"])){
 <td>
  <ul>";
       echo "<li><a href=\"my_carts.php\">Carts</a></li>
-          <li><a href=\"show_stores.php\">Stores</a></li>";
+          <li><a href=\"show_stores.php\">Stores</a></li>
+          <li><a href=\"show_items.php\">Items</a></li>";
       $managerCheck = "select * from MANAGER where username='$subusername'";
       $employeeCheck = "select * from EMPLOYEE where username='$subusername'";
       $result2 = mysql_query($managerCheck, $conn);

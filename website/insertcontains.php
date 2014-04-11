@@ -1,20 +1,21 @@
 <?php
 
-if (isset($_COOKIE["username"])) {
-   $username = $_COOKIE["username"];
-   $password = $_COOKIE["password"];
+include 'topmenu.php';
 
-   $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
-      die(mysql_error());
-   mysql_select_db($username,$conn) or die(mysql_error());
+echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+include 'sidemenu.php';
+echo "</td>";
+
+echo "<td>";
    $item = explode(',', $_POST[item]);
 
    $lookUp = "select SUM(quantity) from LOCATED where productNum=$item[0] and barcode=$item[1]";
    $taken = "select sum(quantity) from CONTAINS where productNum=$item[0] and barcode=$item[1]";
+   
    $table = mysql_query($lookUp, $conn);
    $takenTable = mysql_query($taken, $conn);
    if(mysql_num_rows($table) == 0) {
-      echo "<h3>There are no $item[2] available</h3>";
+      echo "<h3>No $item[2] available</h3>";
    } else {
       $num = mysql_fetch_row($table);
       if(mysql_num_rows($takenTable) != 0) {
@@ -25,6 +26,7 @@ if (isset($_COOKIE["username"])) {
 	 echo "<h3>There are only $num[0] of $item[2] available!</h3>";
       } else {   
 	 $sql = "insert into CONTAINS values ('$_POST[cid]','$item[0]','$item[1]','$_POST[num]')";
+	 //echo $sql;
 	 if(mysql_query($sql,$conn)) {
 	    echo "<h3> Item added into Cart!</h3>";
 	    $update_total = "update CART set totalPrice = (select sum(quantity*salesPrice) from ITEMS I, CONTAINS C where I.productNum = C.productNUM and I.barcode = C.barcode and C.cartID = '$_POST[cid]') where CART.cartid='$_POST[cid]'";
@@ -39,10 +41,7 @@ if (isset($_COOKIE["username"])) {
 	 }
       }
    }
-   echo "<a href=\"main.php\">Return</a> to Home Page.";
-} else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
-   
-}
-
+echo "<a href=\"show_items.php\">Return</a> to Items Page.";
+echo "<p><a href=\"main.php\">Home</a></p>";
+echo "</td></tr></table>";
 ?>
