@@ -1,3 +1,7 @@
+<html>
+<head><title>Inventory Management System</title></head>
+<body>
+
 <?php
 if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
@@ -30,3 +34,5 @@ if(isset($_COOKIE["username"])){
 
 }
 ?>
+</body>
+</html>

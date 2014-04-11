@@ -7,6 +7,10 @@ delete from PURCHASE_ORDER;
 delete from CONTAINS;
 delete from CART;
 delete from ITEMS;
+delete from MANAGER;
+delete from EMPLOYEE;
+delete from CUSTOMER;
+delete from USER;
 
 INSERT INTO USER(username, name, dob, phone, address, password, email)
 VALUES ('larrydog', 'Larry', '2000-01-01', '123-456-7890', '123 Fake Street NW Lethbridge', 'password', 'larryisadog@email.com');
