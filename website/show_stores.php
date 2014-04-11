@@ -80,6 +80,8 @@ if($employee == TRUE)
 }
 if($manager == TRUE)
 {
+
+   echo "<a href='insert_location.php'>New Location</a>";
    echo "<h3>Location List</h3>";
    echo "<table><tr>";
    echo "<th>Number</th>";
@@ -136,6 +138,10 @@ if($manager == TRUE)
 	 echo "<input type=submit name=\"submit\" value=\"Assign Warehouse\">";
 	 echo "</form>";
       }
+      echo "<form action=\"deletelocation.php\" method=post>";
+      echo "<input type=hidden value='$val[0]' name=\"sNum\">";
+      echo "<input type=submit name=\"submit\" value=\"Delete Location\">";
+      echo "</form>";
       echo "</td></tr>";
    }
    echo "</table>";
