@@ -7,6 +7,7 @@ Inventory Management Database
 </HEAD>
 <BODY>
 
+
 <?php
 if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
@@ -23,8 +24,8 @@ if(isset($_COOKIE["username"])){
    include 'sidemenu.php';
    echo "</td>";
    
-   echo "<td>
-       <h1>Inventory Management Database</h1>
+   echo "<td valign='top'>
+       <h1> Inventory Management Database</h1>
        <p>Welcome! Please select a function on the left.</p>
     </td>
 </tr>

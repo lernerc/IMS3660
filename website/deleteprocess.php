@@ -13,6 +13,13 @@ if (isset($_COOKIE["username"])) {
    {
       if(mysql_affected_rows() > 0) {
 	 echo "<h3>Cart removed from Order!</h3>";
+	 $sum = "select sum(C.totalPrice) from CART C, PROCESS P where P.cartID=C.cartID and P.orderID='$_POST[order]'";
+	 $sum_value = mysql_query($sum, $conn);
+	 $value = mysql_fetch_row($sum_value);
+	 if(is_null($value[0]))
+	    $value[0] = 0;
+	 $set_total = "update PURCHASE_ORDER O set totalPrice=$value[0] where O.orderID='$_POST[order]'";
+	 mysql_query($set_total, $conn);
       } else {
 	 echo "<h3>Cart does not exist in Order!</h3>";
       }

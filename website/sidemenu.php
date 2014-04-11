@@ -3,12 +3,12 @@ if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
    if(isset($_COOKIE["subusername"])){
-      $subusername = $_COOKIE["subusername"];
-      
-      $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
-      mysql_select_db($username,$conn);
-      
-      echo "<table>
+   $subusername = $_COOKIE["subusername"];
+   
+   $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
+   mysql_select_db($username,$conn);
+
+   echo "<table>
 <tr>
 <td>
  <ul>";
@@ -46,20 +46,13 @@ if(isset($_COOKIE["username"])){
           <li><a href=\"insert_process.php\">Insert a Cart into an Order</a></li>
           <li><a href=\"delete_process.php\">Delete a Cart from an Order</a></li>
           <li><a href=\"insert_located.php\">Insert Located</a></li>
-          <li><a href=\"delete_located.php\">Delete Located</a></li>";
-      }
-      else if(mysql_num_rows($result3) != 0)
-      {
-	 $employee = TRUE;
-    echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
-          <li><a href=\"delete_located.php\">Delete Located</a></li>";
-      }
-      else
-     echo "</ul>
+          <li><a href=\"delete_located.php\">Delete Located</a></li>
+
+       </ul>
 </td>
 </tr>
 </table>";
-      
+   
    }
    else
    {
@@ -67,6 +60,6 @@ if(isset($_COOKIE["username"])){
    }
 } else {
    echo "<h3>You are not logged in to a database!</h3><p> <a href=\"login.php\">Login First</a></p>";
-   
+
 }
 ?>
