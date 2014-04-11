@@ -12,8 +12,6 @@ include 'sidemenu.php';
 echo "</td>";
 
 echo "<td>";
-
-
 echo "<h3>Create a new Cart</h3>";
 echo "<form action=\"insertcartself.php\" method=post>";
 echo "Cart ID: <input type=number name=\"id\">";

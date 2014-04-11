@@ -6,10 +6,16 @@ echo "</td>";
 
 echo "<td>";
 $zero = 0;
-$sql = "insert into CART values ('$_POST[id]','$subusername','$zero')";
+$sql2 = "select MAX(cartID) from CART";
+$result = mysql_query($sql2,$conn);
+while($val = mysql_fetch_row($result))
+{
+   $cid = $val[0] + 1;
+}
+$sql = "insert into CART values ('$cid','$subusername','$zero')";
 if(mysql_query($sql,$conn))
 {
-   echo "<h3> Cart added!</h3>";
+   echo "<h3> Cart '$cid' added!</h3>";
    
 }
 else

@@ -12,7 +12,7 @@ echo "</td>";
 
 echo "<td valign='top'>";
 echo "<h3>My Carts</h3>";
-echo "<a href=\"insert_cartself.php\">New Cart</a><br><br>";
+echo "<a href=\"insertcartself.php\">New Cart</a><br><br>";
 $sql = "select * from CART where createdBy='$subusername'";
 $result = mysql_query($sql,$conn);
 echo "<table><tr>";
