@@ -1,0 +1,38 @@
+
+a:link {color:#8844CC;text-decoration:none;}
+a:visited {color:#8844CC;text-decoration:none;}
+a:hover {color:#333333;text-decoration:none;}
+a:active {color:#333333;text-decoration:none;}
+
+body{
+background-color:#CCBBCC;
+}
+
+ul
+{
+list-style-type: none;
+padding: 2px;
+margin: 3px;
+border: 1px solid grey;
+background-color:#AACCAA;
+}
+
+table
+{
+border: 1px solid #88BB88;
+background-color:#CCEECC;
+color:#444444;
+}
+
+th
+{
+background-color:#88AA88;
+color:#CCEECC;
+vertical-align:bottom;
+text-align:left;
+}
+
+#top
+{
+background-color:#88AA88;
+}

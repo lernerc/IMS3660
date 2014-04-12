@@ -1,4 +1,4 @@
-<div>
+<div id='footer'>
 <p>
 <table align="center">
     <td valign="bottom">
