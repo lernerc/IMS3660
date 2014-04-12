@@ -18,9 +18,11 @@ if(mysql_num_rows($output) != 0) {
    echo "</tr>";
    while($val = mysql_fetch_row($output)) {
       echo "<tr>";
-      for($i = 0; $i < 5; $i += 1) {
-	 echo "<td>$val[$i]</td>";
+      for($i = 0; $i < 4; $i += 1) {
+	 echo "<td valign='top'>$val[$i]</td>";
       }
+      $val[4]=number_format($val[4]/100, 2,'.','');
+      echo"<td valign='top' align='right'>$$val[4]</td>";
       echo "</tr>";
    }
    echo "</table>";

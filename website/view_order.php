@@ -11,7 +11,8 @@ while($val = mysql_fetch_row($result))
 {
    echo "Order ID: $val[0]<br>";
    echo "Date: $val[1]<br>";
-   echo "Total Price: $val[2]<br>";
+   $val[2]=number_format($val[2]/100, 2, '.','');
+   echo "Total Price: $$val[2]<br>";
    echo "Creator: $val[3]<br>";
    echo "Manager ID: $val[4]<br>";
    echo "<h3>Cart List</h3>";
@@ -31,7 +32,8 @@ while($val = mysql_fetch_row($result))
       {
 	 echo "<td>$val2[0]</td>";
 	 echo "<td>$val1[1]</td>";
-	 echo "<td>$val1[2]</td>";
+	 $val1[2]=number_format($val1[2]/100, 2,'.','');
+	 echo "<td>$$val1[2]</td>";
       }
       echo "</tr>";
    }
