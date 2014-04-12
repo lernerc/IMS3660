@@ -15,7 +15,8 @@ if (isset($_COOKIE["username"])) {
       if(mysql_query($sql,$conn))
       {
 	 echo "<h3> User added!</h3>";
-
+	 $addCust = "insert into CUSTOMER values ('$_POST[username]')";
+	 mysql_query($addCust);
       } else {
 	 $err = mysql_errno();
 	 if($err == 1062)
