@@ -4,7 +4,7 @@ echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
-echo "<td>";
+echo "<td valign='top'>";
 $sql = "delete from STORE where storeNum ='$_POST[sNum]'";
 if(mysql_query($sql,$conn))
 {

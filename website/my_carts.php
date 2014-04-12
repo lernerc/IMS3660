@@ -89,44 +89,47 @@ if($manager == TRUE || $employee == TRUE)
 {
    $sql = "select * from CART where createdBy!='$subusername'";
    $result = mysql_query($sql,$conn);
-   echo "<table><tr>";
-   echo "<th valign='top'>Cart ID</th>";
-   echo "<th valign='top'>Creator</th>";
-   echo "<th valign='top'>Total Price</th>";
-   if($employee == TRUE || $manager == TRUE)
-      echo "<th valign='top'>Purchase Order</th>";
-   echo "</tr>";
-   while($val = mysql_fetch_row($result))
+   if(mysql_num_rows($result) != 0)
    {
-      echo "<tr>";
-      echo "<td valign='top'>$val[0]</td>";
-      echo "<td valign='top'>$val[1]</td>";
-      echo "<td valign='top'>$val[2]</td>";
-      $sql5 = "select * from PROCESS where cartID='$val[0]'";
-      $result5 = mysql_query($sql5,$conn);
-      while($val5 = mysql_fetch_row($result5))
+      echo "<table><tr>";
+      echo "<th valign='top'>Cart ID</th>";
+      echo "<th valign='top'>Creator</th>";
+      echo "<th valign='top'>Total Price</th>";
+      if($employee == TRUE || $manager == TRUE)
+	 echo "<th valign='top'>Purchase Order</th>";
+      echo "</tr>";
+      while($val = mysql_fetch_row($result))
       {
-	 echo "<td valign='top'>$val5[1]</td>";
-      }
-      $sql3 = "select * from PURCHASE_ORDER where createdBy='$subusername'";
-      $result3 = mysql_query($sql3,$conn);
-      if(mysql_num_rows($result3) != 0)
-      {
+	 echo "<tr>";
+	 echo "<td valign='top'>$val[0]</td>";
+	 echo "<td valign='top'>$val[1]</td>";
+	 echo "<td valign='top'>$val[2]</td>";
 	 $sql5 = "select * from PROCESS where cartID='$val[0]'";
 	 $result5 = mysql_query($sql5,$conn);
-	 if(mysql_num_rows($result5) == 0)
+	 while($val5 = mysql_fetch_row($result5))
 	 {
-	    echo "<form action=\"insertprocess.php\" method=post>";
-	    echo "<td valign='top'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
-	    echo "</form>";
+	    echo "<td valign='top'>$val5[1]</td>";
 	 }
+	 $sql3 = "select * from PURCHASE_ORDER where createdBy='$subusername'";
+	 $result3 = mysql_query($sql3,$conn);
+	 if(mysql_num_rows($result3) != 0)
+	 {
+	    $sql5 = "select * from PROCESS where cartID='$val[0]'";
+	    $result5 = mysql_query($sql5,$conn);
+	    if(mysql_num_rows($result5) == 0)
+	    {
+	       echo "<form action=\"insertprocess.php\" method=post>";
+	       echo "<td valign='top'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
+	       echo "</form>";
+	    }
+	 }
+	 echo "<form action='view_cart.php' method=post>";
+	 echo "<td valign='top'><input type='hidden' name='id' value='$val[0]'><input type=submit name='submit' value='View Cart'></td>";
+	 echo "</form>";
+	 echo "</tr>";
       }
-      echo "<form action='view_cart.php' method=post>";
-      echo "<td valign='top'><input type='hidden' name='id' value='$val[0]'><input type=submit name='submit' value='View Cart'></td>";
-      echo "</form>";
-      echo "</tr>";
+      echo "</table>";
    }
-   echo "</table>";
 }
    
 echo "<p><a href='main.php'>Return</a> to Home Page</p>";

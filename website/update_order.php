@@ -20,33 +20,40 @@ while($val = mysql_fetch_row($result))
    echo "<input type=\"hidden\" name=\"oid\" value=\"$val[0]\">";
    echo "<input type=submit name=\"submit\" value=\"Delete Order\">";
    echo "</form>";
-   echo "<h3>Cart List</h3>";
-   echo "<table><tr>";
-   echo "<th>Cart ID</th>";
-   echo "<th>Creator</th>";
-   echo "<th>Total Price</th>";
-   echo "</tr>";
-   $sql2 = "select * from PROCESS where orderID='$val[0]'";
-   $result2 = mysql_query($sql2,$conn);
-   while($val2 = mysql_fetch_row($result2))
+   if(mysql_num_rows($result) != 0)
    {
-      echo "<tr>";
-      $sql1 = "select * from CART where cartID='$val2[0]'";
-      $result1 = mysql_query($sql1,$conn);
-      while($val1 = mysql_fetch_row($result1))
-      {
-	 echo "<td valign='top'>$val2[0]</td>";
-	 echo "<td valign='top'>$val1[1]</td>";
-	 echo "<td valign='top'>$val1[2]</td>";
-	 echo "<td valign='top'><form action=\"deleteprocess.php\" method=post>";
-	 echo "<input type=hidden value='$val2[0]' name='carts'>";
-	 echo "<input type=hidden value='$val2[1]' name='order'>";
-	 echo "<input type=submit name='submit' value='Remove from Order'>";
-	 echo "</form></td>";
-      }
+      echo "<h3>Cart List</h3>";
+      echo "<table><tr>";
+      echo "<th>Cart ID</th>";
+      echo "<th>Creator</th>";
+      echo "<th>Total Price</th>";
       echo "</tr>";
+      $sql2 = "select * from PROCESS where orderID='$val[0]'";
+      $result2 = mysql_query($sql2,$conn);
+      while($val2 = mysql_fetch_row($result2))
+      {
+	 echo "<tr>";
+	 $sql1 = "select * from CART where cartID='$val2[0]'";
+	 $result1 = mysql_query($sql1,$conn);
+	 while($val1 = mysql_fetch_row($result1))
+	 {
+	    echo "<td valign='top'>$val2[0]</td>";
+	    echo "<td valign='top'>$val1[1]</td>";
+	    echo "<td valign='top'>$val1[2]</td>";
+	    echo "<td valign='top'><form action=\"deleteprocess.php\" method=post>";
+	    echo "<input type=hidden value='$val2[0]' name='carts'>";
+	    echo "<input type=hidden value='$val2[1]' name='order'>";
+	    echo "<input type=submit name='submit' value='Remove from Order'>";
+	    echo "</form></td>";
+	 }
+	 echo "</tr>";
+      }
+      echo "</table>";
    }
-   echo "</table>";
+   else
+   {
+      echo "No Carts in Order!";
+   }
 }
 
 echo "<a href=\"show_orders.php\">Return</a> to Orders Page.";
