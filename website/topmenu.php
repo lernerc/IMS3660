@@ -1,5 +1,6 @@
 <html>
-<head><title>Inventory Management System</title></head>
+<head><title>Inventory Management System</title>
+<link rel="stylesheet" type="text/css" href="mystyle.css"></head>
 <body>
 
 <?php
@@ -11,8 +12,8 @@ if(isset($_COOKIE["username"])){
    
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
    mysql_select_db($username,$conn);
-
    echo "<table width=\"70%\" align=\"center\">
+<div id='top'>
 <tr>
 <td width=\"40%\">
 <a href=\"sublogout.php\">Logout</a>
@@ -21,9 +22,9 @@ if(isset($_COOKIE["username"])){
 </td>
 <td>User: <a href=\"update_user.php\">$subusername</a>
 </td>
+</div>
 </tr>
 </table>";
-   
    }
    else
    {

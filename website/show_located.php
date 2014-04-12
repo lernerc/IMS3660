@@ -35,10 +35,8 @@ if($manager == TRUE || $employee == TRUE)
 	 echo "<td valign='top'>$val[1]</td>";
 	 echo "<td valign='top'>$val1[2]</td>";
 	 echo "<td valign='top'>$val1[3]</td>";
-	 $output=number_format($val1[4]/100, 2, '.', '');
-	 echo "<td valign='top' align='right'>$$output</td>";
-	 $output=number_format($val1[5]/100, 2, '.', '');
-	 echo "<td valign='top' align='right'>$$output</td>"; 
+	 echo "<td valign='top'>$val1[4]</td>";
+	 echo "<td valign='top'>$val1[5]</td>"; 
 	 $sql3 = "select * from LOCATED where storeNum='$_POST[sNum]' and productNum='$val[0]' and barcode='$val[1]'";
 	 $result3 = mysql_query($sql3,$conn);
 	 if(mysql_num_rows($result3) != 0)
