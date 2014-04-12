@@ -57,7 +57,7 @@ while($val = mysql_fetch_row($result))
       $result5 = mysql_query($sql5,$conn);
       while($val5 = mysql_fetch_row($result5))
       {
-	 echo "<td valign='top'>$val5[1]</td>";
+	 echo "<td valign='top' align='center'>$val5[1]</td>";
       }
       $sql3 = "select * from PURCHASE_ORDER where createdBy='$subusername'";
       $result3 = mysql_query($sql3,$conn);
@@ -70,7 +70,7 @@ while($val = mysql_fetch_row($result))
 	    if($manager == TRUE)
 	    {
 	       echo "<form action='insertprocess.php' method=post>";
-	       echo "<td valign='top'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
+	       echo "<td valign='top' align='center'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
 	       echo "</form>";
 	    }
 	 }
@@ -116,7 +116,7 @@ if($manager == TRUE || $employee == TRUE)
 	 $result5 = mysql_query($sql5,$conn);
 	 while($val5 = mysql_fetch_row($result5))
 	 {
-	    echo "<td valign='top'>$val5[1]</td>";
+	    echo "<td valign='top' align='center'>$val5[1]</td>";
 	 }
 	 $sql3 = "select * from PURCHASE_ORDER where createdBy='$subusername'";
 	 $result3 = mysql_query($sql3,$conn);
@@ -127,7 +127,7 @@ if($manager == TRUE || $employee == TRUE)
 	    if(mysql_num_rows($result5) == 0)
 	    {
 	       echo "<form action=\"insertprocess.php\" method=post>";
-	       echo "<td valign='top'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
+	       echo "<td valign='top' align='center'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
 	       echo "</form>";
 	    }
 	 }
