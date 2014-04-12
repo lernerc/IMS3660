@@ -27,6 +27,12 @@ while($val2 = mysql_fetch_row($resultCart))
    echo "CartID: $cid";
 }
 echo "<br>";
+if($manager == TRUE || $employee == TRUE)
+{
+   echo "<form action='searchcarts.php' method=post>";
+   echo "Search for : <input type=text name='cart'>";
+   echo "<input type=submit name='submit' value='Search Carts'> </form>";
+}
 $sql = "select * from CART where createdBy='$subusername'";
 $result = mysql_query($sql,$conn);
 echo "<table><tr>";
