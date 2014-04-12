@@ -20,7 +20,7 @@ if(mysql_query($sql,$conn))
       echo "<p>Cart Number $_POST[id] does not exist!</p>";
    }
    else {
-      echo "error number $err";
+      echo "Cannot delete! Cart contains items.<br>";
    }   
 }
 
