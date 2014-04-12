@@ -13,7 +13,8 @@ while($val = mysql_fetch_row($result))
 {
    echo "Order ID: $val[0]<br>";
    echo "Date: $val[1]<br>";
-   echo "Total Price: $val[2]<br>";
+   $output=number_format($val[2]/100, 2,'.','');
+   echo "Total Price: $$output<br>";
    echo "Creator: $val[3]<br>";
    echo "Manager ID: $val[4]<br>";
    echo "<form action=\"deletepurchaseorder.php\" method=post>";
@@ -39,7 +40,8 @@ while($val = mysql_fetch_row($result))
 	 {
 	    echo "<td valign='top'>$val2[0]</td>";
 	    echo "<td valign='top'>$val1[1]</td>";
-	    echo "<td valign='top'>$val1[2]</td>";
+	    $output=number_format($val1[2]/100, 2, '.','');
+	    echo "<td valign='top' align='right'>$$output</td>";
 	    echo "<td valign='top'><form action=\"deleteprocess.php\" method=post>";
 	    echo "<input type=hidden value='$val2[0]' name='carts'>";
 	    echo "<input type=hidden value='$val2[1]' name='order'>";
