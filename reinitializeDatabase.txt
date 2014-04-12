@@ -118,7 +118,7 @@ INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
 VALUES ('9999999999','0596203002','001','1');
 
 INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
-VALUES ('9999999999','0596203002','001','1');
+VALUES ('9999999999','0596203002','005','1');
 
 INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
 VALUES ('9999999999','0596203002','003','10');
