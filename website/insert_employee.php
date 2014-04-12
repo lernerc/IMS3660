@@ -28,7 +28,6 @@ if(isset($_COOKIE["username"])){
 
       }
       echo "</select>";
-      echo " ID: <input type=number name=\"eid\">";
       echo "<input type=submit name=\"submit\" value=\"Add Employee\">";
    }
    else

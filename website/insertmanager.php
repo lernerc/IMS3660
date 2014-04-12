@@ -7,8 +7,15 @@ if (isset($_COOKIE["username"])) {
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
-
-   $sql = "insert into MANAGER values ('$_POST[username]','$_POST[mid]')";
+   $sql_ID = "select max(ID) from MANAGER";
+   $ID_table = mysql_query($sql_ID);
+   $mid = 1;
+   if(mysql_num_rows($ID_table) != 0) {
+      $row = mysql_fetch_row($ID_table);
+      $mid = $row[0] + $mid;
+   }
+   
+   $sql = "insert into MANAGER values ('$_POST[username]','$mid')";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Manager added!</h3>";

@@ -7,8 +7,14 @@ if (isset($_COOKIE["username"])) {
    $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
-
-   $sql = "insert into EMPLOYEE values ('$_POST[username]','$_POST[eid]')";
+   $sql_ID = "select max(ID) from EMPLOYEE";
+   $ID_table = mysql_query($sql_ID);
+   $eid = 1;
+   if(mysql_num_rows($ID_table) != 0) {
+      $row = mysql_fetch_row($ID_table);
+      $eid = $row[0] + $eid;
+   }
+   $sql = "insert into EMPLOYEE values ('$_POST[username]','$eid')";
    if(mysql_query($sql,$conn))
    {
       echo "<h3> Employee added!</h3>";
