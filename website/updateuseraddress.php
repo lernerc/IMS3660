@@ -1,11 +1,11 @@
 <?php
 include 'topmenu.php';
 
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width=\"70%\" align=\"center\"><tr><td valign='top' width=\"25%\">";
 include 'sidemenu.php';
 echo "</td>";
 
-echo "<td>";
+echo "<td valign='top'>";
 
 $sql = "update USER set address='$_POST[address]' where username='$subusername'";
 if(mysql_query($sql,$conn))
@@ -20,4 +20,5 @@ echo "<a href=\"update_user.php\">Return</a> to Profile Page.";
 echo "<p><a href=\"main.php\">Home</a></p>";
 echo "</td></tr></table>";
 
+include 'footer.php';
 ?>
