@@ -8,21 +8,25 @@ if (isset($_COOKIE["username"])) {
       die(mysql_error());
    mysql_select_db($username,$conn) or die(mysql_error());
    $dateB = date("Y-m-d",mktime(0,0,0,$_POST[month], $_POST[day],$_POST[year]));
-   $sql = "insert into USER values ('$_POST[username]','$_POST[name]','$dateB','$_POST[ph]','$_POST[address]','$_POST[passwd]', '$_POST[email]')";
-   if(mysql_query($sql,$conn))
-   {
-      echo "<h3> User added!</h3>";
-
+   if(empty($_POST[username]) || empty($_POST[passwd])) {
+      echo "<h2>There was no username or password entered</h2>";
    } else {
-      $err = mysql_errno();
-      if($err == 1062)
+      $sql = "insert into USER values ('$_POST[username]','$_POST[name]','$dateB','$_POST[ph]','$_POST[address]','$_POST[passwd]', '$_POST[email]')";
+      if(mysql_query($sql,$conn))
       {
-	 echo "<p>Username $_POST[username] already exists!</p>";
-      }
-      else {
-	 echo "error number $err";
-      }
+	 echo "<h3> User added!</h3>";
 
+      } else {
+	 $err = mysql_errno();
+	 if($err == 1062)
+	 {
+	    echo "<p>Username $_POST[username] already exists!</p>";
+	 }
+	 else {
+	    echo "error number $err";
+	 }
+
+      }
    }
    echo "<a href=\"sublogout.php\">Login</a><br>";
    echo "<a href=\"main.php\">Return</a> to Home Page.";
