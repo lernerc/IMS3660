@@ -1,6 +1,6 @@
 <?php
 include 'topmenu.php';
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -24,7 +24,7 @@ while($val1 = mysql_fetch_row($resultM))
 $sql = "insert into PURCHASE_ORDER (orderID, totalPrice, createdBy, id, oDate) values ('$oid',$zero,'$subusername','$id','$date')";
 if(mysql_query($sql,$conn))
 {
-      echo "<h3> Purchase Order added!</h3>";
+      echo "<h3> Purchase Order $oid added!</h3>";
 } else {
    $err = mysql_errno();
    if($err == 1062)
@@ -40,4 +40,6 @@ if(mysql_query($sql,$conn))
 echo "<a href=\"show_orders.php\">Return</a> to Orders Page.";
 echo "<br><a href=\"main.php\">Home</a>";
 echo "</td></tr></table>";
+
+include 'footer.php';
 ?>
