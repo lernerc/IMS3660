@@ -46,10 +46,23 @@ while($val = mysql_fetch_row($result))
       $result3 = mysql_query($sql3,$conn);
       if(mysql_num_rows($result3) != 0)
       {
-	 echo "<td><form action=\"insertcontains.php\" method=post>";
-	 echo "<input type=hidden value='1' name=\"num\">";
-	 echo "<input type=hidden value=$cartid name=\"cid\">";
-	 echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"><input type=submit name=\"submit\" value=\"Add to Cart\"></td>";
+	 $sql4 = "select * from PROCESS where cartID='$cartid'";
+	 $result4 = mysql_query($sql4,$conn);
+	 if(mysql_num_rows($result4) == 0)
+	 {
+	    echo "<td><form action=\"insertcontains.php\" method=post>";
+	    echo "<input type=hidden value='1' name=\"num\">";
+	    echo "<input type=hidden value=$cartid name=\"cid\">";
+	    echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"><input type=submit name=\"submit\" value=\"Add to Cart\">";
+	    echo "</form><td>";
+	 }
+      }
+      if($manager == TRUE)
+      {
+	 echo "<td><form action=\"updateitem.php\" method=post>";
+	 echo "<input type=\"hidden\" name=\"pNum\" value=\"$val[0]\">";
+	 echo "<input type=\"hidden\" name=\"bar\" value=\"$val[1]\">";
+	 echo "<input type=submit name=\"submit\" value=\"Update\">";
 	 echo "</form><td>";
       }
    }

@@ -43,7 +43,7 @@ while($val = mysql_fetch_row($result))
       echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"Edit Cart\"></td>";
       echo "</form>";
    }
-   if($manager == TRUE)
+   if($manager == TRUE || $employee == TRUE)
    {
       $sql5 = "select * from PROCESS where cartID='$val[0]'";
       $result5 = mysql_query($sql5,$conn);
@@ -59,9 +59,12 @@ while($val = mysql_fetch_row($result))
 	 $result5 = mysql_query($sql5,$conn);
 	 if(mysql_num_rows($result5) == 0)
 	 {
-	    echo "<form action=\"insertprocess.php\" method=post>";
-	    echo "<td><input type=\"hidden\" name=\"cart\" value=\"$val[0]\"><input type=hidden name='order' value='$oid'><input type=submit name=\"submit\" value=\"Process\"></td>";
-	    echo "</form>";
+	    if($manager == TRUE)
+	    {
+	       echo "<form action=\"insertprocess.php\" method=post>";
+	       echo "<td><input type=\"hidden\" name=\"cart\" value=\"$val[0]\"><input type=hidden name='order' value='$oid'><input type=submit name=\"submit\" value=\"Process\"></td>";
+	       echo "</form>";
+	    }
 	 }
       }
    }
