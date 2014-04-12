@@ -8,6 +8,11 @@ Commit your changes locally, and say what your changes were
 Commit your local commits to the repo
     git push
 
+if you mess the order up when trying to update files in the repo
+     rm filename
+     git checkout 
+     git pull
+
 MYSQL commands
 ssh to cronus
 login to mysql
@@ -27,5 +32,7 @@ Changing my sql database password
      delete from TABLE_NAME where selection_predicates;
      update table_name set attr=val where selection_predicates;\
      alter table TABLE_NAME modify VARIABLE_NAME VARIABLE_TYPE;
+     
+     
 
 rsync -rtv source destination
