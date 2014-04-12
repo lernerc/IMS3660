@@ -40,6 +40,10 @@ echo "<td>";
 	 }
       }
    }
+echo "<form action='update_cart.php' method='post'>";
+echo "<input type=hidden name='id' value='$_POST[cid]'>";
+echo "<input type=submit name='submit' value='Update Cart'>";
+echo "</form>";
 echo "<a href=\"show_items.php\">Return</a> to Items Page.";
 echo "<p><a href=\"main.php\">Home</a></p>";
 echo "</td></tr></table>";
