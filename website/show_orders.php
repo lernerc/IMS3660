@@ -7,10 +7,6 @@ include 'sidemenu.php';
 echo "</td>";
 
 echo "<td valign='top'>";
-echo "<br>";
-echo "<form action='searchorders.php' method=post>";
-echo "Search for : <input type=text name='order'>";
-echo "<input type=submit name='submit' value='Search Orders'> </form>";
 if($manager == TRUE)
 {
    echo "<h3>My Orders</h3>";
@@ -22,7 +18,11 @@ if($manager == TRUE)
       $oid = $val2[0];
       echo "OrderID: $oid";
    }
-   echo "<br>";
+
+   echo "<form action='searchorders.php' method=post>";
+   echo "Search for : <input type=text name='order'>";
+   echo "<input type=submit name='submit' value='Search Orders'> </form>";
+   
    $sql = "select * from PURCHASE_ORDER where createdBy='$subusername'";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";
@@ -48,13 +48,19 @@ if($manager == TRUE)
    }
    echo "</table>";
 }
-if($manager == TRUE || $employee == TRUE)
+else if($employee == TRUE)
 {
+   echo "<h3>Orders</h3>";
+   
+   echo "<form action='searchorders.php' method=post>";
+   echo "Search for : <input type=text name='order'>";
+   echo "<input type=submit name='submit' value='Search Orders'> </form>";
+   
    $sql = "select * from PURCHASE_ORDER where createdBy!='$subusername'";
    $result = mysql_query($sql,$conn);
    if(mysql_num_rows($result) != 0)
    {
-      echo "<h3>Orders</h3>";
+      
       echo "<table><tr>";
       echo "<th valign='top'>Order ID</th>";
       echo "<th valign='top'>Date</th>";
