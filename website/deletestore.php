@@ -1,6 +1,6 @@
 <?php
 include 'topmenu.php';
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -26,4 +26,6 @@ if(mysql_query($sql,$conn))
 echo "<a href=\"show_stores.php\">Return</a> to Stores Page.";
 echo "<br><a href=\"main.php\">Home</a>";
 echo "</td></tr></table>";
+
+include 'footer.php';
 ?>
