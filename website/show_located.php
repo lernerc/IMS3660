@@ -57,7 +57,7 @@ if($manager == TRUE || $employee == TRUE)
 	       }
 	       else
 	       {
-		  echo "<td>$val3[3]</td>";
+		  echo "<td valign='top' align='center'>$val3[3]</td>";
 	       }
 	    }
 	 }
