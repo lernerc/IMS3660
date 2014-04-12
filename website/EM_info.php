@@ -1,12 +1,8 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
  <?php
 
 include 'topmenu.php';
 
-echo "<table width=\"70%\" align=\"center\"><tr><td valign=\"top\" width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 if($employee or $manager) {
@@ -75,10 +71,12 @@ if($employee or $manager) {
    }
    echo "</table>";
 }
+echo "<br><h3>Delete User</h3>";
+include 'delete_user.php';
+
 
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
 echo "</td></tr></table>";
-?>
 
-</body>
-</html>
+include 'footer.php';
+?>
