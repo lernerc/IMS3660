@@ -2,7 +2,7 @@
 
 include 'topmenu.php';
 
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -32,4 +32,6 @@ echo "<td>";
 echo "<a href=\"update_user.php\">Return</a> to Profile Page.";
 echo "<p><a href=\"main.php\">Home</a></p>";
 echo "</td></tr></table>";
+
+include 'footer.php';
 ?>
