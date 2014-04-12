@@ -35,15 +35,6 @@ if(isset($_COOKIE["username"])){
 	 */
 	 echo "<li><a href=\"insert_item.php\">Insert Item</a></li>";
 	 echo "<li><a href=\"delete_item.php\">Delete Item</a></li>";
-	 echo "<li><a href=\"insert_location.php\">Insert Location</a></li>";
-	 echo "<li><a href=\"delete_location.php\">Delete Location</a></li>";
-	 echo "<li><a href=\"insert_store.php\">Insert Store</a></li>";
-	 echo "<li><a href=\"delete_store.php\">Delete Store</a></li>";
-	 echo "<li><a href=\"insert_warehouse.php\">Insert Warehouse</a></li>";
-	 echo "<li><a href=\"delete_warehouse.php\">Delete Warehouse</a></li>";
-	 /*echo "<li><a href=\"insert_cart.php\">Insert Cart</a></li>";
-	 echo "<li><a href=\"delete_cart.php\">Delete Cart</a></li>";
-	 */
 	 echo "<li><a href=\"insert_purchaseorder.php\">Insert Purchase Order</a></li>";
 	 echo "<li><a href=\"delete_purchaseorder.php\">Delete Purchase Order</a></li>";
 	 echo "<li><a href=\"insert_contains.php\">Insert an Item into a Cart</a></li>";
@@ -57,8 +48,6 @@ if(isset($_COOKIE["username"])){
       {
 	 $employee = TRUE;
 	 echo "<li><a href='EM_info.php'>People Information Page</a></li>";
-	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
-          <li><a href=\"delete_located.php\">Delete Located</a></li>";
       }
       else
       {
