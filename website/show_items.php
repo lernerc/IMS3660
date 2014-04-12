@@ -39,6 +39,9 @@ else
       }
    }
 }
+echo "<form action='searchitems.php' method=post>";
+echo "Search for : <input type=text name='item'>";
+echo "<input type=submit name='submit' value='Search Items'> </form>";
 $sql = "select * from ITEMS";
 $result = mysql_query($sql,$conn);
 echo "<table><tr>";
