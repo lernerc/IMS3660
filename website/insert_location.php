@@ -1,6 +1,6 @@
 <?php
 include 'topmenu.php';
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width=\"70%\" align='center'><tr><td valign='top' width=\"25%\">";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -11,7 +11,6 @@ while($val = mysql_fetch_row($result))
 {
    $snum = $val[0] + 1;
 }
-mysql_select_db($username,$conn);
 echo "<h3>Insert a Location</h3>";
 echo "<form action=\"insertlocation.php\" method=post>";
 echo "Store Number: $snum<br><input type=hidden value='$snum' name=\"sNum\">";
