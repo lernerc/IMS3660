@@ -1,9 +1,3 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
-
-
 <?php
 if(isset($_COOKIE["username"])){
 
@@ -16,6 +10,7 @@ if(isset($_COOKIE["username"])){
    mysql_select_db($username,$conn);
    $sql = "select username from USER";
    $result = mysql_query($sql,$conn);
+
    if(mysql_num_rows($result) != 0)
    {
       echo "Username: <select name=\"username\">";
@@ -34,13 +29,9 @@ if(isset($_COOKIE["username"])){
    }
 
    echo "</form>";
+   
 } else {
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
-
 }
+
 ?>
-
-
-
-</body>
-</html>
