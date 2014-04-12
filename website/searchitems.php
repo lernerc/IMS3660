@@ -17,9 +17,11 @@ if(mysql_num_rows($output) != 0) {
    echo "<th>Price</th>";
    echo "</tr>";
    while($val = mysql_fetch_row($output)) {
+      echo "<tr>";
       for($i = 0; $i < 5; $i += 1) {
 	 echo "<td>$val[$i]</td>";
       }
+      echo "</tr>";
    }
    echo "</table>";
 } else {
