@@ -184,7 +184,7 @@ INSERT INTO PURCHASE_ORDER (orderID, oDate, totalPrice, createdBy, id)
 VALUES ('1','2014-03-08','0','larrym','55536254');
 
 INSERT INTO PURCHASE_ORDER (orderID, oDate, totalPrice, createdBy, id)
-VALUES ('1','2014-04-10','0','larrym','55536254');
+VALUES ('2','2014-04-10','0','larrym','55536254');
 
 INSERT INTO PROCESS (cartID, orderID)
 VALUES ('1','1');
@@ -195,5 +195,31 @@ VALUES ('2','1');
 INSERT INTO PROCESS (cartID, orderID)
 VALUES ('4','2');
 
+update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
+I.barcode=C.barcode and C.cartID='1') where CART.cartID='1';
 
+update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
+I.barcode=C.barcode and C.cartID='2') where CART.cartID='2';
+
+update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
+I.barcode=C.barcode and C.cartID='3') where CART.cartID='3';
+
+update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
+I.barcode=C.barcode and C.cartID='4') where CART.cartID='4';
+
+update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
+I.barcode=C.barcode and C.cartID='5') where CART.cartID='5';
+
+update PURCHASE_ORDER O set totalPrice=(select sum(C.totalPrice) from 
+CART C, PROCESS P where P.cartID=C.cartID and P.orderID='1') 
+where O.orderID='1';
+
+update PURCHASE_ORDER O set totalPrice=(select sum(C.totalPrice) from 
+CART C, PROCESS P where P.cartID=C.cartID and P.orderID='2') 
+where O.orderID='2';
 
