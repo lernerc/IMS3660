@@ -9,7 +9,7 @@ echo "<td>";
       $sql = "update USER set email='$_POST[email]' where username='$subusername'";
       if(mysql_query($sql,$conn))
       {
-	 echo "<h3> User email updated!</h3>";
+	 echo "<h3> User email updated to $_POST[email] !</h3>";
 	 
       } else {
 	 $err = mysql_errno();
@@ -19,4 +19,5 @@ echo "<td>";
 echo "<p><a href=\"main.php\">Home</a></p>";
 echo "</td></tr></table>";
 
+include 'footer.php';
 ?>

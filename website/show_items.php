@@ -83,7 +83,7 @@ while($val = mysql_fetch_row($result))
 	       echo "<input type=text size=2 value='1' name=\"num\">";
 	       echo "<input type=hidden value=$cartid name=\"cid\">";
 	       echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"></td><td valign='center'><input type=submit name=\"submit\" value=\"Add to Cart\">";
-	       echo "</form><td>";
+	       echo "</form><br><br><td>";
 	    }
 	 }
       }
