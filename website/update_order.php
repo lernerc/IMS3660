@@ -35,13 +35,13 @@ while($val = mysql_fetch_row($result))
       $result1 = mysql_query($sql1,$conn);
       while($val1 = mysql_fetch_row($result1))
       {
-	 echo "<td>$val2[0]</td>";
-	 echo "<td>$val1[1]</td>";
-	 echo "<td>$val1[2]</td>";
-	 echo "<td><form action=\"deleteprocess.php\" method=post>";
-	 echo "<input type=hidden value='$val2[0]' name=\"carts\">";
-	 echo "<input type=hidden value='$val2[1]' name=\"order\">";
-	 echo "<input type=submit name=\"submit\" value=\"Remove from Order\">";
+	 echo "<td valign='top'>$val2[0]</td>";
+	 echo "<td valign='top'>$val1[1]</td>";
+	 echo "<td valign='top'>$val1[2]</td>";
+	 echo "<td valign='top'><form action=\"deleteprocess.php\" method=post>";
+	 echo "<input type=hidden value='$val2[0]' name='carts'>";
+	 echo "<input type=hidden value='$val2[1]' name='order'>";
+	 echo "<input type=submit name='submit' value='Remove from Order'>";
 	 echo "</form></td>";
       }
       echo "</tr>";
