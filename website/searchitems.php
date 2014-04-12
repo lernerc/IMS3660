@@ -4,7 +4,7 @@ echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 echo "<td valign='top'>";
-echo "<h2>Items related to $item</h2>";
+echo "<h2>Items related to '$_POST[item]'</h2>";
 
 $sql = "select productNum, barcode, name, description, salesPrice from ITEMS where description LIKE '%$_POST[item]%' or name LIKE '%$_POST[item]%'";
 $output = mysql_query($sql, $conn);
@@ -25,6 +25,8 @@ if(mysql_num_rows($output) != 0) {
 } else {
    echo "<h1>There are no items that fit those search terms</h1>";
 }
+echo "<br><a href='show_items.php'>Return</a> to Items Page.";
+echo "<br><a href='main.php'>Home</a>";
 echo "</td>";
 include 'footer.php';
 ?>
