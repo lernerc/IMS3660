@@ -150,4 +150,5 @@ if($manager == TRUE)
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
       echo "</td></tr></table>";
 
+include 'footer.php';
 ?>
