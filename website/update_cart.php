@@ -12,7 +12,8 @@ while($val = mysql_fetch_row($result))
    echo "Cart ID: $val[0]<br>";
    echo "<input type=\"hidden\" name=\"id\" value=\"$val[0]\">";
    echo "Created by: $val[1]<br>";
-   echo "Total Price: $val[2]<br>";
+   $output=number_format($val[2]/100, 2,'.', '');
+   echo "Total Price: $$output<br>";
    echo "<form action=\"deletecartself.php\" method=post>";
    echo "<input type=\"hidden\" name=\"id\" value=\"$val[0]\">";
    echo "<input type=submit name=\"submit\" value=\"Delete Cart\">";
@@ -35,23 +36,26 @@ while($val = mysql_fetch_row($result))
       while($val2 = mysql_fetch_row($result2))
       {
 	 echo "<tr>";
-	 echo "<td>$val2[1]</td>";
-	 echo "<td>$val2[2]</td>";
+	 echo "<td valign='top'>$val2[1]</td>";
+	 echo "<td valign='top'>$val2[2]</td>";
 	 $sql1 = "select * from ITEMS where productNum='$val2[1]' and barcode='$val2[2]'";
 	 $result1 = mysql_query($sql1,$conn);
 	 while($val1 = mysql_fetch_row($result1))
 	 {
-	    echo "<td>$val1[2]</td>";
-	    echo "<td>$val1[3]</td>";
-	    echo "<td>$val1[4]</td>";
-	    if($employee == TRUE || $manager == TRUE)
-	       echo "<td>$val1[5]</td>";
-	    echo "<td><form action=\"updatecontains.php\" method=post>";
+	    echo "<td valign='top'>$val1[2]</td>";
+	    echo "<td valign='top'>$val1[3]</td>";
+	    $output=number_format($val1[4]/100, 2, '.', '');
+	    echo "<td valign='top' align='right'>$$output</td>";
+	    if($employee == TRUE || $manager == TRUE) {
+	       $output=number_format($val1[5]/100, 2, '.', '');
+	       echo "<td valign='top' align='right'>$$output</td>";
+	    }
+	    echo "<td valign='top'><form action=\"updatecontains.php\" method=post>";
 	    echo "<input type=text size=4 name='amt' value=$val2[3]>";
 	    echo "<input type=hidden value='$_POST[id]' name=\"carts\"><input type=\"hidden\" name=\"pNum\" value=\"$val2[1]\"><input type='hidden' name='bar' value='$val2[2]'>";
 	    echo "<input type=submit name=\"submit\" value=\"Update\">";
 	    echo "</form></td>";
-	    echo "<td><form action=\"deletecontains.php\" method=post>";
+	    echo "<td valign='top'><form action=\"deletecontains.php\" method=post>";
 	    echo "<input type=hidden value='$_POST[id]' name=\"carts\">";
 	    echo "<input type=\"hidden\" name=\"item\" value=\"$val2[1],$val2[2]\"><input type=submit name=\"submit\" value=\"Remove from Cart\">";
 	    echo "</form><td>";
