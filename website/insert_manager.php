@@ -41,7 +41,7 @@ if(isset($_COOKIE["username"])){
 
 }
 
-echo "</td>";
+echo "</td></tr><table>";
 include 'footer.php';
 ?>
 

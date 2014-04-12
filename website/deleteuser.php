@@ -59,6 +59,6 @@ if (isset($_COOKIE["username"])) {
    echo "<h1>You are not logged in!</h1><p> <a href=\"login.php\">Login First</a></p>";
 }
 
-echo "</td>";
+echo "</td></tr><table>";
 include 'footer.php';
 ?>
