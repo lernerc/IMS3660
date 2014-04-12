@@ -1,5 +1,10 @@
 <?
-
+include 'topmenu.php';
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
+include 'sidemenu.php';
+echo "</td>";
+echo "<td valign='top'>";
+echo "<h2>Delete a User</h2>";
 if (isset($_COOKIE["username"])) {
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
@@ -17,18 +22,18 @@ if (isset($_COOKIE["username"])) {
 	 if(mysql_query($sql1,$conn))
 	 {
 	    if(mysql_affected_rows() > 0)
-	       echo "<h3>User removed!</h3>";
+	       echo "<h1>User removed!</h1>";
 	    else
-	       echo "<h3>User does not exist!</h3>";
+	       echo "<h1>User does not exist!</h1>";
 	 } else {
 	    $err = mysql_errno();
 	    if($err == 1062)
 	    {
-	       echo "<h3>Username $_POST[username] does not exist!</h3>";
+	       echo "<h1>Username $_POST[username] does not exist!</h1>";
 	    }
 	    //Should return if other relations other than customer exists but does not
 	    else if($err == 1451) {
-	       echo "<h3>User $_POST[username] has existing Relationships, so you cannot delete it</h3>";
+	       echo "<h1>User $_POST[username] has existing Relationships, so you cannot delete it</h1>";
 	    } else {
 	       echo "error number $err";
 	    }
@@ -39,21 +44,21 @@ if (isset($_COOKIE["username"])) {
       $err = mysql_errno();
       if($err == 1062)
       {
-	 echo "<h3>Username $_POST[username] does not exist!</h3>";
+	 echo "<h1>Username $_POST[username] does not exist!</h1>";
       }
       else if($err == 1451) {
-	 echo "<h3>User $_POST[username] has existing Relationships beside being a Customer, so you cannot delete it</h3>";
+	 echo "<h1>User $_POST[username] has existing Relationships beside being a Customer, so you cannot delete it</h1>";
       } else {
 	 echo "error number $err";
       }
    }
-     
+   echo "<a href='EM_info.php'>Return</a> to People Information Page. <br>";
+   echo "<a href=\"main.php\">Return</a> to Home Page.";
+
 } else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+   echo "<h1>You are not logged in!</h1><p> <a href=\"login.php\">Login First</a></p>";
 }
 
-echo "<a href='EM_info.php'>Return</a> to People Information Page. <br>";
-echo "<a href=\"main.php\">Return</a> to Home Page.";
-
+echo "</td>";
 include 'footer.php';
 ?>

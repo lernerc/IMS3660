@@ -28,5 +28,5 @@ echo "<td valign='top'>";
 echo "<a href=\"show_orders.php\">Return</a> to Orders Page.";
 echo "<br><a href=\"main.php\">Home</a>";
 echo "</td></tr></table>";
-
+include 'footer.php';
 ?>

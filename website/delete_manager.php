@@ -34,12 +34,12 @@ if(isset($_COOKIE["username"])){
    }
 
    echo "</form>";
+   echo "<br><a href='EM_info.php'>Return</a> to People Information Page.";
+   echo "<br><a href='main.php'>Home</a>";
 } else {
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
 
 }
-echo "<br><a href='EM_info.php'>Return</a> to People Information Page.";
-echo "<br><a href='main.php'>Home</a>";
 echo "</td>";
 include 'footer.php';
 ?>

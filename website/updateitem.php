@@ -2,7 +2,7 @@
 
 include 'topmenu.php';
 
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 echo "<td valign='top'>";
