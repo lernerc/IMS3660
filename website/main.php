@@ -1,13 +1,3 @@
-<!DOCTYPE>
-<HTML>
-<HEAD>
-<title>
-Inventory Management Database
-</title>
-</HEAD>
-<BODY>
-
-
 <?php
 if(isset($_COOKIE["username"])){
    $username = $_COOKIE["username"];
@@ -39,7 +29,6 @@ if(isset($_COOKIE["username"])){
    echo "<h3>You are not logged in to a database!</h3><p> <a href=\"login.php\">Login First</a></p>";
 
 }
+include 'footer.php';
 ?>
-    
-</BODY>
-</HTML>
+   
