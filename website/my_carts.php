@@ -41,7 +41,8 @@ while($val = mysql_fetch_row($result))
    echo "<tr>";
    echo "<td valign='top'>$val[0]</td>";
    echo "<td valign='top'>$val[1]</td>";
-   echo "<td valign='top'>$val[2]</td>";
+   $output = number_format($val[2]/100, 2, '.', '');
+   echo "<td valign='top' align='right'>$$output</td>";
    $sql4 = "select * from PROCESS where cartID='$val[0]'";
    $result4 = mysql_query($sql4,$conn);
    if($manager == TRUE || $employee == TRUE)
@@ -103,7 +104,8 @@ if($manager == TRUE || $employee == TRUE)
 	 echo "<tr>";
 	 echo "<td valign='top'>$val[0]</td>";
 	 echo "<td valign='top'>$val[1]</td>";
-	 echo "<td valign='top'>$val[2]</td>";
+	 $output = number_format($val[2]/100, 2, '.', '');
+	 echo "<td valign='top' align='right'>$$output</td>";
 	 $sql5 = "select * from PROCESS where cartID='$val[0]'";
 	 $result5 = mysql_query($sql5,$conn);
 	 while($val5 = mysql_fetch_row($result5))

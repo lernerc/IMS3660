@@ -63,12 +63,15 @@ while($val = mysql_fetch_row($result))
    $result1 = mysql_query($sql1,$conn);
    while($val1 = mysql_fetch_row($result1))
    {
-      echo "<td valign='top'>$val[1]</td>";
+      echo "<td valign='top'>$val1[1]</td>";
       echo "<td valign='top'>$val1[2]</td>";
       echo "<td valign='top'>$val1[3]</td>";
-      $pricedollar = $val1[4]/100;echo "<td>$pricedollar</td>";
-      if($employee == TRUE || $manager == TRUE)
-	 $purchdollar = $val1[5]/100;echo "<td>$purchdollar</td>";
+      $output = number_format($val1[4]/100, 2, '.', '');
+      echo "<td valign='top' align='right'>$$output</td>";
+      if($employee == TRUE || $manager == TRUE) {
+	 $output = number_format($val1[5]/100, 2, '.', '');
+	 echo "<td valign='top' align='right'>$$output</td>";
+      }
       $sql3 = "select * from CART where createdBy='$subusername'";
       $result3 = mysql_query($sql3,$conn);
       if(mysql_num_rows($result3) != 0)
