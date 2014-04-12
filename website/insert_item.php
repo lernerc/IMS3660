@@ -7,6 +7,7 @@ echo "<td valign='top'>";
 if($manager == TRUE)
 {
    echo "<h3>Insert an Item</h3>";
+   echo "<form action='insertitem.php' method='post'>";
    $sql2 = "select MAX(productNum) from ITEMS";
    $result = mysql_query($sql2,$conn);
    while($val = mysql_fetch_row($result))

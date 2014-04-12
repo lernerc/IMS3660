@@ -66,7 +66,7 @@ while($val = mysql_fetch_row($result))
       echo "<td>$val1[3]</td>";
       echo "<td>$val1[4]</td>";
       if($employee == TRUE || $manager == TRUE)
-	 echo "<td>$val1[5]</td>";
+	 $dolladollabillsyall=$val1[5]/100;echo "<td></td>";
       $sql3 = "select * from CART where createdBy='$subusername'";
       $result3 = mysql_query($sql3,$conn);
       if(mysql_num_rows($result3) != 0)
@@ -75,10 +75,10 @@ while($val = mysql_fetch_row($result))
 	 $result4 = mysql_query($sql4,$conn);
 	 if(mysql_num_rows($result4) == 0)
 	 {
-	    echo "<td><form action=\"insertcontains.php\" method=post>";
-	    echo "<input type=hidden value='1' name=\"num\">";
+	    echo "<td valign='center'><form action=\"insertcontains.php\" method=post>";
+	    echo "<input type=text size=2 value='1' name=\"num\">";
 	    echo "<input type=hidden value=$cartid name=\"cid\">";
-	    echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"><input type=submit name=\"submit\" value=\"Add to Cart\">";
+	    echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"></td><td valign='center'><input type=submit name=\"submit\" value=\"Add to Cart\">";
 	    echo "</form><td>";
 	 }
       }
