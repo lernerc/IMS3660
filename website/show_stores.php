@@ -80,9 +80,8 @@ if($employee == TRUE)
 }
 if($manager == TRUE)
 {
-
-   echo "<a href='insert_location.php'>New Location</a>";
    echo "<h3>Location List</h3>";
+   echo "<a href='insert_location.php'>New Location</a>";
    echo "<table><tr>";
    echo "<th>Number</th>";
    echo "<th>Name</th>";

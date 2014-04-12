@@ -7,10 +7,10 @@ include 'sidemenu.php';
 echo "</td>";
 
 echo "<td valign='top'>";
-echo "<h3>My Orders</h3>";
-echo "<a href=\"insertorderself.php\">New Order</a><br>";
 if($manager == TRUE)
 {
+   echo "<h3>My Orders</h3>";
+   echo "<a href=\"insertorderself.php\">New Order</a><br>";
    $sqlOrder = "select MAX(orderID) from PURCHASE_ORDER where createdBy='$subusername'";
    $resultOrder = mysql_query($sqlOrder, $conn);
    while($val2 = mysql_fetch_row($resultOrder))
@@ -42,7 +42,12 @@ if($manager == TRUE)
       echo "</tr>";
    }
    echo "</table>";
-echo "<br>";
+}
+if($manager == TRUE || $employee == TRUE)
+{
+   
+   echo "<br>";
+   echo "<h3>Orders</h3>";
    $sql = "select * from PURCHASE_ORDER where createdBy!='$subusername'";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";

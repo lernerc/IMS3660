@@ -28,15 +28,13 @@ if(isset($_COOKIE["username"])){
 	 echo "<li><a href=\"delete_user.php\">Delete User</a></li>";
 	 echo "<li><a href='EM_info.php'>People Information Page</a></li>";
 	 echo "<li><a href=\"insert_item.php\">Insert Item</a></li>";
-	 echo "<li><a href=\"insert_purchaseorder.php\">Insert Purchase Order</a></li>";
-	 echo "<li><a href=\"delete_purchaseorder.php\">Delete Purchase Order</a></li>";
-	 echo "<li><a href=\"delete_process.php\">Delete a Cart from an Order</a></li>";
 	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>";
       }
       else if(mysql_num_rows($result3) != 0)
       {
 	 $employee = TRUE;
+	 echo "<li><a href='show_orders.php'>Orders</a></li>";
 	 echo "<li><a href='EM_info.php'>People Information Page</a></li>";
       }
       else

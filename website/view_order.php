@@ -4,7 +4,7 @@ echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
 include 'sidemenu.php';
 echo "</td>";
 echo "<td valign='top'>";
-echo "<h3>Modify Order</h3>";
+echo "<h3>View Order</h3>";
 $sql = "select * from PURCHASE_ORDER where orderID='$_POST[id]'";
 $result = mysql_query($sql,$conn);
 while($val = mysql_fetch_row($result))

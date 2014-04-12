@@ -7,6 +7,12 @@ include 'sidemenu.php';
 echo "</td>";
 
 echo "<td valign='top'>";
+echo "<h3>Item List</h3>";
+
+if($manager == TRUE)
+{
+   echo "<a href=\"insert_item.php\">New Item</a><br>";
+}
 
 $sqlCart = "select * from CART where createdBy='$subusername'";
 $resultCart = mysql_query($sqlCart, $conn);
@@ -33,7 +39,6 @@ else
       }
    }
 }
-echo "<h3>Item List</h3>";
 $sql = "select * from ITEMS";
 $result = mysql_query($sql,$conn);
 echo "<table><tr>";
