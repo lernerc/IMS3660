@@ -37,12 +37,6 @@ while($val = mysql_fetch_row($result))
    echo "<td>$val[2]</td>";
    $sql4 = "select * from PROCESS where cartID='$val[0]'";
    $result4 = mysql_query($sql4,$conn);
-   if(mysql_num_rows($result4) == 0)
-   {
-      echo "<form action=\"update_cart.php\" method=post>";
-      echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"Edit Cart\"></td>";
-      echo "</form>";
-   }
    if($manager == TRUE || $employee == TRUE)
    {
       $sql5 = "select * from PROCESS where cartID='$val[0]'";
@@ -67,6 +61,18 @@ while($val = mysql_fetch_row($result))
 	    }
 	 }
       }
+   }
+   if(mysql_num_rows($result4) == 0)
+   {
+      echo "<form action=\"update_cart.php\" method=post>";
+      echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"Edit Cart\"></td>";
+      echo "</form>";
+   }
+   else
+   {
+      echo "<form action=\"view_cart.php\" method=post>";
+      echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"View Cart\"></td>";
+      echo "</form>";
    }
    echo "</tr>";
 }
@@ -108,6 +114,9 @@ if($manager == TRUE || $employee == TRUE)
 	    echo "</form>";
 	 }
       }
+      echo "<form action=\"view_cart.php\" method=post>";
+      echo "<td><input type=\"hidden\" name=\"id\" value=\"$val[0]\"><input type=submit name=\"submit\" value=\"View Cart\"></td>";
+      echo "</form>";
       echo "</tr>";
    }
    echo "</table>";
