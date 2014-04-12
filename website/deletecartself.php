@@ -1,6 +1,6 @@
 <?php
 include 'topmenu.php';
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -28,4 +28,5 @@ echo "<a href=\"my_carts.php\">Return</a> to Carts Page.";
 echo "<br><a href=\"main.php\">Home</a>";
 echo "</td></tr></table>";
 
+include 'footer.php';
 ?>

@@ -1,10 +1,10 @@
 <?php
 include 'topmenu.php';
-echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+echo "<table width='70%' align='center'><tr><td width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
-echo "<td>";
+echo "<td valign='top'>";
 $zero = 0;
 $sql2 = "select MAX(cartID) from CART";
 $result = mysql_query($sql2,$conn);
@@ -35,4 +35,5 @@ echo "<a href=\"my_carts.php\">Return</a> to Carts Page.";
 echo "<br><a href=\"main.php\">Home</a>";
 echo "</td></tr></table>";
 
+include 'footer.php';
 ?>
