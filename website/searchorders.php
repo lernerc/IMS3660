@@ -10,17 +10,23 @@ $sql = "select * from PURCHASE_ORDER where orderID LIKE '%$_POST[order]%' or cre
 $output = mysql_query($sql, $conn);
 if(mysql_num_rows($output) != 0) {
    echo "<table><tr>";
-   echo "<th>Order ID</th>";
-   echo "<th>Date</th>";
-   echo "<th>Total Price</th>";
-   echo "<th>Creator</th>";
-   echo "<th>Manager ID</th>";
+   echo "<th valign='top'>Order ID</th>";
+   echo "<th valign='top'>Date</th>";
+   echo "<th valign='top'>Total Price</th>";
+   echo "<th valign='top'>Creator</th>";
+   echo "<th valign='top'>Manager ID</th>";
    echo "</tr>";
    while($val = mysql_fetch_row($output)) {
       echo "<tr>";
-      for($i = 0; $i < 5; $i += 1) {
-	 echo "<td>$val[$i]</td>";
+      for($i = 0; $i < 2; $i += 1) {
+	 echo "<td valign='top'>$val[$i]</td>";
       }
+      $output=number_format($val[2]/100, 2, '.', '');
+      echo "<td valign='top' align='right'>$$output</td>";
+      for($i = 3; $i < 5; $i += 1) {
+	 echo "<td valign='top'>$val[$i]</td>";
+      }
+      echo "</tr>";
       echo "</tr>";
    }
    echo "</table>";

@@ -44,7 +44,7 @@ while($val = mysql_fetch_row($result))
 	    $output=number_format($val1[5]/100, 2,'.', '');
 	    echo "<td valign='top' align='right'>$$output</td>";
 	 }
-	 echo "<td valign='top'>$val2[3]</td>";
+	 echo "<td valign='top' align='center'>$val2[3]</td>";
       }
       echo "</tr>";
    }
