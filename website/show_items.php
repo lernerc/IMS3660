@@ -8,14 +8,31 @@ echo "</td>";
 
 echo "<td valign='top'>";
 
-$sqlCart = "select MAX(cartID) from CART where createdBy='$subusername'";
+$sqlCart = "select * from CART where createdBy='$subusername'";
 $resultCart = mysql_query($sqlCart, $conn);
-while($val2 = mysql_fetch_row($resultCart))
+if(mysql_num_rows($resultCart) == 0)
 {
-   $cartid = $val2[0];
-   echo "CartID: $cartid";
+   echo "No Cart to add items to!";
 }
-
+else
+{
+   $sqlCart = "select MAX(cartID) from CART where createdBy='$subusername'";
+   $resultCart = mysql_query($sqlCart, $conn);
+   while($val2 = mysql_fetch_row($resultCart))
+   {
+      $sqlP = "select * from PROCESS where cartID='$val2[0]'";
+      $resultP = mysql_query($sqlP, $conn);
+      if(mysql_num_rows($resultP) != 0)
+      {
+	 echo "No Cart to add items to!";
+      }
+      else
+      {
+	 $cartid = $val2[0];
+	 echo "CartID: $cartid";
+      }
+   }
+}
 echo "<h3>Item List</h3>";
 $sql = "select * from ITEMS";
 $result = mysql_query($sql,$conn);

@@ -24,22 +24,12 @@ if(isset($_COOKIE["username"])){
       if(mysql_num_rows($result2) != 0)
       {
 	 $manager = TRUE;
+	 echo "<li><a href='show_orders.php'>Orders</a></li>";
 	 echo "<li><a href=\"delete_user.php\">Delete User</a></li>";
 	 echo "<li><a href='EM_info.php'>People Information Page</a></li>";
-	 /* echo "<li><a href=\"insert_customer.php\">Insert Customer</a></li>";
-	 echo "<li><a href=\"delete_customer.php\">Delete Customer</a></li>";
-	 echo "<li><a href=\"insert_employee.php\">Insert Employee</a></li>";
-	 echo "<li><a href=\"delete_employee.php\">Delete Employee</a></li>";
-	 echo "<li><a href=\"insert_manager.php\">Insert Manager</a></li>";
-	 echo "<li><a href=\"delete_manager.php\">Delete Manager</a></li>";
-	 */
 	 echo "<li><a href=\"insert_item.php\">Insert Item</a></li>";
-	 echo "<li><a href=\"delete_item.php\">Delete Item</a></li>";
 	 echo "<li><a href=\"insert_purchaseorder.php\">Insert Purchase Order</a></li>";
 	 echo "<li><a href=\"delete_purchaseorder.php\">Delete Purchase Order</a></li>";
-	 echo "<li><a href=\"insert_contains.php\">Insert an Item into a Cart</a></li>";
-	 echo "<li><a href=\"delete_contains.php\">Delete an Item from a Cart</a></li>";
-	 echo "<li><a href=\"insert_process.php\">Insert a Cart into an Order</a></li>";
 	 echo "<li><a href=\"delete_process.php\">Delete a Cart from an Order</a></li>";
 	 echo "<li><a href=\"insert_located.php\">Insert Located</a></li>
           <li><a href=\"delete_located.php\">Delete Located</a></li>";

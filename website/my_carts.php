@@ -16,8 +16,15 @@ if($manager == TRUE)
    while($val2 = mysql_fetch_row($resultOrder))
    {
       $oid = $val2[0];
-      echo "OrderID: $oid";
+      echo "OrderID: $oid<br>";
    }
+}
+$sqlCart = "select MAX(cartID) from CART where createdBy='$subusername'";
+$resultCart = mysql_query($sqlCart, $conn);
+while($val2 = mysql_fetch_row($resultCart))
+{
+   $cid = $val2[0];
+   echo "CartID: $cid";
 }
 echo "<br>";
 $sql = "select * from CART where createdBy='$subusername'";

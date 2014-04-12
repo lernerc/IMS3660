@@ -1,12 +1,11 @@
 <?php
 
-if (isset($_COOKIE["username"])) {
-   $username = $_COOKIE["username"];
-   $password = $_COOKIE["password"];
+include 'topmenu.php';
+echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+include 'sidemenu.php';
+echo "</td>";
 
-   $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or
-      die(mysql_error());
-   mysql_select_db($username,$conn) or die(mysql_error());
+echo "<td valign='top'>";
 
    $sql = "delete from PROCESS where cartID='$_POST[carts]' and orderID='$_POST[order]'";
    if(mysql_query($sql,$conn))
@@ -31,10 +30,8 @@ if (isset($_COOKIE["username"])) {
 	 echo "error number $err";
       }
    }
-   echo "<a href=\"main.php\">Return</a> to Home Page.";
-} else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
-
-}
-
+   
+echo "<a href=\"show_orders.php\">Return</a> to Orders Page.";
+echo "<br><a href=\"main.php\">Home</a>";
+echo "</td></tr></table>";
 ?>
