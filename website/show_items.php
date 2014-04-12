@@ -64,9 +64,9 @@ while($val = mysql_fetch_row($result))
       echo "<td>$val[1]</td>";
       echo "<td>$val1[2]</td>";
       echo "<td>$val1[3]</td>";
-      echo "<td>$val1[4]</td>";
+      $pricedollar = $val1[4]/100;echo "<td>$pricedollar</td>";
       if($employee == TRUE || $manager == TRUE)
-	 $dolladollabillsyall=$val1[5]/100;echo "<td></td>";
+	 $purchdollar = $val1[5]/100;echo "<td>$purchdollar</td>";
       $sql3 = "select * from CART where createdBy='$subusername'";
       $result3 = mysql_query($sql3,$conn);
       if(mysql_num_rows($result3) != 0)

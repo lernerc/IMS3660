@@ -1,7 +1,7 @@
 <?php
 include 'topmenu.php';
 
-echo "<table width='70%' align='center'><tr><td valign='top' width='25%>";
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 
@@ -12,7 +12,6 @@ $result = mysql_query($sql,$conn);
 while($val = mysql_fetch_row($result))
 {
    echo "Order ID: $val[0]<br>";
-   echo "<input type=\"hidden\" name=\"id\" value=\"$val[0]\">";
    echo "Date: $val[1]<br>";
    echo "Total Price: $val[2]<br>";
    echo "Creator: $val[3]<br>";
@@ -43,7 +42,7 @@ while($val = mysql_fetch_row($result))
 	 echo "<input type=hidden value='$val2[0]' name=\"carts\">";
 	 echo "<input type=hidden value='$val2[1]' name=\"order\">";
 	 echo "<input type=submit name=\"submit\" value=\"Remove from Order\">";
-	 echo "</form><td>";
+	 echo "</form></td>";
       }
       echo "</tr>";
    }
