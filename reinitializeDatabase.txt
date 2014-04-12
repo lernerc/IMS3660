@@ -1,16 +1,139 @@
-delete from WAREHOUSE;
-delete from STORE;
-delete from LOCATED;
-delete from LOCATION;
-delete from PROCESS;
-delete from PURCHASE_ORDER;
-delete from CONTAINS;
-delete from CART;
-delete from ITEMS;
-delete from MANAGER;
-delete from EMPLOYEE;
-delete from CUSTOMER;
-delete from USER;
+drop table WAREHOUSE;
+drop table STORE;
+drop table LOCATED;
+drop table LOCATION;
+drop table PROCESS;
+drop table PURCHASE_ORDER;
+drop table CONTAINS;
+drop table CART;
+drop table ITEMS;
+drop table MANAGER;
+drop table EMPLOYEE;
+drop table CUSTOMER;
+drop table USER;
+
+CREATE TABLE USER
+(
+	username varchar(20),
+	name varchar(30),
+	dob date,
+	phone varchar(15),
+	address varchar(70),
+	password varchar(20),
+	email varchar(30),
+	PRIMARY KEY (username)
+) type=InnoDB;
+
+CREATE TABLE MANAGER
+(
+	username varchar(20),
+	id int,
+	PRIMARY KEY (username, id),
+	FOREIGN KEY (username) REFERENCES USER(username) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE EMPLOYEE
+(
+	username varchar(20),
+	id int,
+	PRIMARY KEY (username, id),
+	FOREIGN KEY (username) REFERENCES USER(username) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE CUSTOMER
+(
+	username varchar(20),
+	PRIMARY KEY (username),
+	FOREIGN KEY (username) REFERENCES USER(username) on delete RESTRICT on update CASCADE 
+) type=InnoDB;
+
+CREATE TABLE CART
+(
+	cartID int,
+	createdBy varchar(20),
+	totalPrice int,
+	PRIMARY KEY (cartID),
+	FOREIGN KEY (createdBy) REFERENCES USER(username) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE PURCHASE_ORDER
+(
+	orderID int,
+	oDate date,
+	totalPrice int,
+	createdBy varchar(20),
+	id int,
+	PRIMARY KEY (orderID),
+	FOREIGN KEY (createdBy, id) REFERENCES MANAGER(username, id) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE PROCESS
+(
+	cartID int,
+	orderID int,
+	PRIMARY KEY(cartID),
+	FOREIGN KEY (cartID) REFERENCES CART(cartID),
+	FOREIGN KEY (orderID) REFERENCES PURCHASE_ORDER(orderID) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE ITEMS
+(
+	productNum int,
+	barcode int,
+	name varchar(30),
+	description text,
+	salesPrice int,
+	purchasePrice int,
+	PRIMARY KEY (productNum, barcode)
+) type=InnoDB;
+
+CREATE TABLE CONTAINS
+(
+	cartID int,
+	productNum int,
+	barcode int,
+	quantity int,
+	PRIMARY KEY (cartID, productNum, barcode),
+	FOREIGN KEY (cartID) REFERENCES CART(cartID) on delete RESTRICT on update CASCADE,
+	FOREIGN KEY (productNum, barcode) REFERENCES ITEMS(productNum, barcode) on update RESTRICT on delete RESTRICT
+) type=InnoDB;
+
+CREATE TABLE LOCATION
+(
+	storeNum int,
+	name varchar(20),
+	address varchar(30),
+	phone varchar(10),
+	hours varchar(30),
+	department varchar(15),
+	PRIMARY KEY (storeNum)
+) type=InnoDB;
+
+CREATE TABLE STORE
+(
+	storeNum int,
+	PRIMARY KEY (storeNum),
+	FOREIGN KEY (storeNum) REFERENCES LOCATION(storeNum) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE WAREHOUSE
+(
+	storeNum int,
+	PRIMARY KEY (storeNum),
+	FOREIGN KEY (storeNum) REFERENCES LOCATION(storeNum) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
+CREATE TABLE LOCATED
+(
+	productNum int,
+	barcode int,
+	storeNum int,
+quantity int,
+	PRIMARY KEY (productNum, barcode, storeNum),
+	FOREIGN KEY (productNum, barcode) REFERENCES ITEMS(productNum, barcode) on delete RESTRICT on update CASCADE,
+	FOREIGN KEY (storeNum) REFERENCES LOCATION(storeNum) on delete RESTRICT on update CASCADE
+) type=InnoDB;
+
 
 INSERT INTO USER(username, name, dob, phone, address, password, email)
 VALUES ('larrym', 'Larry', '1980-01-01', '403-555-5555', '231 Fake Street NW Lethbridge', 'larrym', 'larrym@email.com');
