@@ -13,13 +13,12 @@ if($manager == TRUE)
 {
    echo "<a href=\"insert_item.php\">New Item</a><br>";
 }
-$nocarts = FALSE;
+
 $sqlCart = "select * from CART where createdBy='$subusername'";
 $resultCart = mysql_query($sqlCart, $conn);
 if(mysql_num_rows($resultCart) == 0)
 {
    echo "No Cart to add items to!";
-   $nocarts = TRUE;
 }
 else
 {
@@ -32,7 +31,6 @@ else
       if(mysql_num_rows($resultP) != 0)
       {
 	 echo "No Cart to add items to!";
-	 $nocarts = TRUE;
       }
       else
       {
@@ -77,14 +75,11 @@ while($val = mysql_fetch_row($result))
 	 $result4 = mysql_query($sql4,$conn);
 	 if(mysql_num_rows($result4) == 0)
 	 {
-	    if($nocarts == FALSE)
-	    {
-	       echo "<td valign='center'><form action=\"insertcontains.php\" method=post>";
-	       echo "<input type=text size=2 value='1' name=\"num\">";
-	       echo "<input type=hidden value=$cartid name=\"cid\">";
-	       echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"></td><td valign='center'><input type=submit name=\"submit\" value=\"Add to Cart\">";
-	       echo "</form><td>";
-	    }
+	    echo "<td valign='center'><form action=\"insertcontains.php\" method=post>";
+	    echo "<input type=text size=2 value='1' name=\"num\">";
+	    echo "<input type=hidden value=$cartid name=\"cid\">";
+	    echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"></td><td valign='center'><input type=submit name=\"submit\" value=\"Add to Cart\">";
+	    echo "</form><td>";
 	 }
       }
       if($manager == TRUE)
