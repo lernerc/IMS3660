@@ -1,9 +1,3 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
-
-
 <?php
 
       include 'topmenu.php';
@@ -106,9 +100,5 @@
       echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
       echo "</td></tr></table>";
 
+include 'footer.php'
 ?>
-
-
-
-</body>
-</html>

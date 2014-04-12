@@ -1,35 +1,28 @@
-<html>
-<head><title>Inventory Management System</title></head>
-<body>
-
-
-
 <?php
-if(isset($_COOKIE["username"])){
+include 'topmenu.php';
+echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
+include 'sidemenu.php';
+echo "</td>";
 
-   echo "<form action=\"insertlocation.php\" method=post>";
-
-   $username = $_COOKIE["username"];
-   $password = $_COOKIE["password"];
-
-   $conn = mysql_connect("cronus.cs.uleth.ca",$username,$password) or die(mysql_error());
-   mysql_select_db($username,$conn);
-   echo "<h3>Insert a Location</h3>";
-   echo "Store Number: <input type=number name=\"sNum\">";
-   echo "Name: <input type=text name=\"name\">";
-   echo "Address: <input type=text name=\"addr\">";
-   echo "Phone: <input type=text name=\"ph\">";
-   echo "Hours: <input type=text name=\"hour\">";
-   echo "Department: <input type=text name=\"dept\">";
-   echo "<input type=submit name=\"submit\" value=\"Add Location\">";
-   echo "</form>";
-} else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
-
+echo "<td valign='top'>";
+$sql2 = "select MAX(storeNum) from LOCATION";
+$result = mysql_query($sql2,$conn);
+while($val = mysql_fetch_row($result))
+{
+   $snum = $val[0] + 1;
 }
+mysql_select_db($username,$conn);
+echo "<h3>Insert a Location</h3>";
+echo "<form action=\"insertlocation.php\" method=post>";
+echo "Store Number: $snum<br><input type=hidden value='$snum' name=\"sNum\">";
+echo "Name: <input type=text name=\"name\"><br>";
+echo "Address: <input type=text name=\"addr\"><br>";
+echo "Phone: <input type=text name=\"ph\"><br>";
+echo "Hours: <input type=text name=\"hour\"><br>";
+echo "Department: <input type=text name=\"dept\"><br>";
+echo "<input type=submit name=\"submit\" value=\"Add Location\"><br>";
+echo "</form>";
+echo "<a href=\"show_stores.php\">Return</a> to Stores Page.";
+echo "<br><a href=\"main.php\">Home</a>";
+echo "</td></tr></table>";
 ?>
-
-
-
-</body>
-</html>

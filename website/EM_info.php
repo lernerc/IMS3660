@@ -1,4 +1,9 @@
+<html>
+<head><title>Inventory Management System</title></head>
+<body>
+
  <?php
+
 include 'topmenu.php';
 
 echo "<table width=\"70%\" align=\"center\"><tr><td valign=\"top\" width=\"25%\">";
@@ -51,7 +56,7 @@ if($employee or $manager) {
    echo "</table>";
 
    echo "<h3>Customers</h3>";
-   $sql = "select name, address, phone, email from USER U, CUSTOMER C where C.username = U.username and not exists (select * from MANAGER M where M.username = U.username) and not exists (select * from EMPLOYEE E where E.username = U.username)";
+   $sql = "select name, address, phone, email from USER U, CUSTOMER C where C.username = U.username";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";
    echo "<th>name</th>";
@@ -73,5 +78,7 @@ if($employee or $manager) {
 
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
 echo "</td></tr></table>";
-include 'footer.php'
 ?>
+
+</body>
+</html>

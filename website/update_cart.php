@@ -3,7 +3,7 @@ include 'topmenu.php';
 echo "<table width=\"70%\" align=\"center\"><tr><td width=\"25%\">";
 include 'sidemenu.php';
 echo "</td>";
-echo "<td>";
+echo "<td valign='top'>";
 echo "<h3>Modify Cart</h3>";
 $sql = "select * from CART where cartID='$_POST[id]'";
 $result = mysql_query($sql,$conn);

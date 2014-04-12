@@ -6,7 +6,7 @@ echo "<table width=\"70%\" align=\"center\"><tr><td valign='top' width=\"25%\">"
 include 'sidemenu.php';
 echo "</td>";
 
-echo "<td>";
+echo "<td valign='top'>";
 
 $sqlCart = "select MAX(cartID) from CART where createdBy='$subusername'";
 $resultCart = mysql_query($sqlCart, $conn);
@@ -42,16 +42,22 @@ while($val = mysql_fetch_row($result))
       echo "<td>$val1[4]</td>";
       if($employee == TRUE || $manager == TRUE)
 	 echo "<td>$val1[5]</td>";
-      echo "<td><form action=\"insertcontains.php\" method=post>";
-      echo "<input type=hidden value='1' name=\"num\">";
-      echo "<input type=hidden value=$cartid name=\"cid\">";
-      echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"><input type=submit name=\"submit\" value=\"Add to Cart\"></td>";
-      echo "</form><td>";
+      $sql3 = "select * from CART where createdBy='$subusername'";
+      $result3 = mysql_query($sql3,$conn);
+      if(mysql_num_rows($result3) != 0)
+      {
+	 echo "<td><form action=\"insertcontains.php\" method=post>";
+	 echo "<input type=hidden value='1' name=\"num\">";
+	 echo "<input type=hidden value=$cartid name=\"cid\">";
+	 echo "<input type=\"hidden\" name=\"item\" value=\"$val[0],$val[1]\"><input type=submit name=\"submit\" value=\"Add to Cart\"></td>";
+	 echo "</form><td>";
+      }
    }
    echo "</tr>";
 }
 echo "</table>";
 echo "<p><a href=\"main.php\">Return</a> to Home Page</p>";
-      echo "</td></tr></table>";
+echo "</td></tr></table>";
 
+include 'footer.php';
 ?>
