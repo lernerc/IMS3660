@@ -1,5 +1,9 @@
 <?php
-
+include 'topmenu.php';
+echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
+include 'sidemenu.php';
+echo "</td>";
+echo "<td valign='top'>";
 if (isset($_COOKIE["username"])) {
    $username = $_COOKIE["username"];
    $password = $_COOKIE["password"];
@@ -17,7 +21,7 @@ if (isset($_COOKIE["username"])) {
    $sql = "insert into EMPLOYEE values ('$_POST[username]','$eid')";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Employee added!</h3>";
+      echo "<h3> Employee $_POST[username] added!</h3>";
 
    } else {
       $err = mysql_errno();
@@ -30,7 +34,8 @@ if (isset($_COOKIE["username"])) {
       }
 
    }
-   echo "<a href=\"main.php\">Return</a> to Home Page.";
+      echo "<a href=\"EM_info.php\">Return</a> to People Page.";
+   echo "<br><a href=\"main.php\">Return</a> to Home Page.";
 } else {
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
 

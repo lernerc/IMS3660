@@ -17,7 +17,7 @@ if (isset($_COOKIE["username"])) {
    if(mysql_query($sql,$conn))
    {
       if(mysql_affected_rows() > 0)
-	 echo "<h3> Employee removed!</h3>";
+	 echo "<h3> Employee $_POST[username] removed!</h3>";
       else
 	 echo "<h3>Employee does not exist</h3>";
    } else {
@@ -32,7 +32,8 @@ if (isset($_COOKIE["username"])) {
       }
 
    }
-   echo "<a href=\"main.php\">Return</a> to Home Page.";
+      echo "<a href=\"EM_info.php\">Return</a> to People Page.";
+   echo "<br><a href=\"main.php\">Return</a> to Home Page.";
 } else {
    echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
 
