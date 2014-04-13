@@ -6,7 +6,7 @@ echo "</td>";
 echo "<td valign='top'>";
 echo "<h2>Items related to '$_POST[item]'</h2>";
 
-$sql = "select productNum, barcode, name, description, salesPrice from ITEMS where description LIKE '%$_POST[item]%' or name LIKE '%$_POST[item]%'";
+$sql = "select productNum, barcode, name, description, salesPrice from ITEMS where description LIKE '%$_POST[item]%' or name LIKE '%$_POST[item]%' or productNum='$_POST[item]'";
 $output = mysql_query($sql, $conn);
 if(mysql_num_rows($output) != 0) {
    echo "<table><tr>";

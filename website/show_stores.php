@@ -122,7 +122,7 @@ if($manager == TRUE)
       {
 	 echo "<form action='deletestore.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
-	 echo "<input type=submit name='submit' value='Delete Store          ' >";
+	 echo "<input type=submit name='submit' value='Delete Store' >";
 	 echo "</form>";
       }
       $sql3 = "select * from LOCATION where not exists (select * from STORE where storeNum='$val[0]')";
@@ -131,7 +131,7 @@ if($manager == TRUE)
       {
 	 echo "<form action='insertstore.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
-	 echo "<input type=submit name='submit' value='Assign Store         '>";
+	 echo "<input type=submit name='submit' value='Assign Store'>";
 	 echo "</form>";
       }
       $sql2 = "select * from WAREHOUSE where storeNum='$val[0]'";
@@ -140,7 +140,7 @@ if($manager == TRUE)
       {
 	 echo "<form action='deletewarehouse.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
-	 echo "<input type=submit name='submit' value='Delete Warehouse '>";
+	 echo "<input type=submit name='submit' value='Delete Warehouse'>";
 	 echo "</form>";
       }
       $sql4 = "select * from LOCATION where not exists (select * from WAREHOUSE where storeNum='$val[0]')";
@@ -154,7 +154,7 @@ if($manager == TRUE)
       }
       echo "<form action='deletelocation.php' method=post>";
       echo "<input type=hidden value='$val[0]' name='sNum'>";
-      echo "<input type=submit name='submit' value='Delete Location     '>";
+      echo "<input type=submit name='submit' value='Delete Location'>";
       echo "</form>";
       echo "</td></tr>";
    }

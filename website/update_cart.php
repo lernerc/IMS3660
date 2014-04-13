@@ -12,7 +12,8 @@ while($val = mysql_fetch_row($result))
    echo "Cart ID: $val[0]<br>";
    echo "<input type=\"hidden\" name=\"id\" value=\"$val[0]\">";
    echo "Created by: $val[1]<br>";
-   echo "Total Price: $val[2]<br>";
+   $output=number_format($val[2]/100, 2,'.', '');
+   echo "Total Price: $$output<br>";
    echo "<form action=\"deletecartself.php\" method=post>";
    echo "<input type=\"hidden\" name=\"id\" value=\"$val[0]\">";
    echo "<input type=submit name=\"submit\" value=\"Delete Cart\">";
@@ -43,9 +44,13 @@ while($val = mysql_fetch_row($result))
 	 {
 	    echo "<td>$val1[2]</td>";
 	    echo "<td>$val1[3]</td>";
-	    echo "<td>$val1[4]</td>";
+	    $output=number_format($val1[4]/100, 2,'.', '');
+	    echo "<td align='right'>$$output</td>";
 	    if($employee == TRUE || $manager == TRUE)
-	       echo "<td>$val1[5]</td>";
+	    {
+	       $output=number_format($val1[5]/100, 2,'.', '');
+	       echo "<td align='right'>$$output</td>";
+	    }
 	    echo "<td><form action=\"updatecontains.php\" method=post>";
 	    echo "<input type=text size=4 name='amt' value=$val2[3]>";
 	    echo "<input type=hidden value='$_POST[id]' name=\"carts\"><input type=\"hidden\" name=\"pNum\" value=\"$val2[1]\"><input type='hidden' name='bar' value='$val2[2]'>";

@@ -4,7 +4,7 @@ echo "<table width='70%' align='center'><tr><td valign='top' width='25%'>";
 include 'sidemenu.php';
 echo "</td>";
 echo "<td valign='top'>";
-echo "<h2>Orders related to '$_POST[cart]'</h2>";
+echo "<h2>Carts related to '$_POST[cart]'</h2>";
 
 $sql = "select * from CART where cartID LIKE '%$_POST[cart]%' or createdBy LIKE '%$_POST[cart]%'";
 $output = mysql_query($sql, $conn);
@@ -22,7 +22,12 @@ if(mysql_num_rows($output) != 0) {
       }
       $val[2]=number_format($val[2]/100, 2, '.', '');
       echo "<td valign='top' align='right'>$$val[2]</td>";
-      echo "<td valign='top'>$val[3]</td>";
+      $sql5 = "select * from PROCESS where cartID='$val[0]'";
+      $result5 = mysql_query($sql5,$conn);
+      while($val5 = mysql_fetch_row($result5))
+      {
+	 echo "<td valign='top' align='center'>$val5[1]</td>";
+      }
       echo "</tr>";
    }
    echo "</table>";
