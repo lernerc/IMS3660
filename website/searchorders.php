@@ -27,7 +27,6 @@ if(mysql_num_rows($output) != 0) {
 	 echo "<td valign='top'>$val[$i]</td>";
       }
       echo "</tr>";
-      echo "</tr>";
    }
    echo "</table>";
 } else {

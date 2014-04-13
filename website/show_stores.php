@@ -10,6 +10,11 @@ echo "<td valign='top'>";
 if($manager == FALSE)
 {
    echo "<h3>Store List</h3>";
+
+   echo "<form action='searchlocations.php' method=post>";
+   echo "Search for: <input type=text name='loc'>";
+   echo "<input type=submit name='submit' value='Search Locations'></form>";
+
    $sql = "select * from STORE";
    $result = mysql_query($sql,$conn);
    echo "<table><tr>";
@@ -50,6 +55,11 @@ if($manager == FALSE)
 if($employee == TRUE)
 {
    echo "<h3>Warehouse List</h3>";
+   
+   echo "<form action='searchlocations.php' method=post>";
+   echo "Search for: <input type=text name='loc'>";
+   echo "<input type=submit name='submit' value='Search Locations'></form>";
+   
    echo "<table><tr>";
    echo "<th valign='top'>Number</th>";
    echo "<th valign='top'>Name</th>";
@@ -81,6 +91,11 @@ if($employee == TRUE)
 if($manager == TRUE)
 {
    echo "<h3>Location List</h3>";
+
+   echo "<form action='searchlocations.php' method=post>";
+   echo "Search for: <input type=text name='loc'>";
+   echo "<input type=submit name='submit' value='Search Locations'></form>";
+   
    echo "<a href='insert_location.php'>New Location</a>";
    echo "<table><tr>";
    echo "<th valign='top'>Number</th>";
