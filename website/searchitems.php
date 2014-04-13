@@ -6,7 +6,7 @@ echo "</td>";
 echo "<td valign='top'>";
 echo "<h2>Items related to '$_POST[item]'</h2>";
 
-$sql = "select productNum, barcode, name, description, salesPrice from ITEMS where description LIKE '%$_POST[item]%' or name LIKE '%$_POST[item]%' or productNum='$_POST[item]'";
+$sql = "select * from ITEMS where description LIKE '%$_POST[item]%' or name LIKE '%$_POST[item]%' or productNum='$_POST[item]'";
 $output = mysql_query($sql, $conn);
 if(mysql_num_rows($output) != 0) {
    echo "<table><tr>";
@@ -15,6 +15,10 @@ if(mysql_num_rows($output) != 0) {
    echo "<th>Name</th>";
    echo "<th>Description</th>";
    echo "<th>Price</th>";
+   if($manager == TRUE || $employee == TRUE)
+   {
+      echo "<th>Purchase Price</th>";
+   }
    echo "</tr>";
    while($val = mysql_fetch_row($output)) {
       echo "<tr>";
@@ -23,6 +27,11 @@ if(mysql_num_rows($output) != 0) {
       }
       $val[4]=number_format($val[4]/100, 2,'.','');
       echo"<td valign='top' align='right'>$$val[4]</td>";
+      if($manager == TRUE || $employee == TRUE)
+      {
+	 $val[5]=number_format($val[5]/100, 2,'.','');
+	 echo"<td valign='top' align='right'>$$val[5]</td>";
+      }
       echo "</tr>";
    }
    echo "</table>";
