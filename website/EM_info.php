@@ -67,8 +67,8 @@ if($employee or $manager) {
    }
    echo "<h3>Customers</h3>";
    $sql = "select name, address, phone, email from USER U, CUSTOMER C where C.username = U.username";
-   $result = mysql_query($sql,$conn);
-   if(mysql_num_rows($result) != 0)
+   $result1 = mysql_query($sql,$conn);
+   if(mysql_num_rows($result1) != 0)
    {
       echo "<table><tr>";
       echo "<th>name</th>";
@@ -76,7 +76,7 @@ if($employee or $manager) {
       echo "<th>phone</th>";
       echo "<th>email</th>";
       echo "</tr>";
-      while($val = mysql_fetch_row($result))
+      while($val = mysql_fetch_row($result1))
       {
 	 echo "<tr>";
 	 echo "<td>$val[0]</td>";
