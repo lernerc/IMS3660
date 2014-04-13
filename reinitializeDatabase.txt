@@ -125,10 +125,10 @@ CREATE TABLE WAREHOUSE
 
 CREATE TABLE LOCATED
 (
-	productNum int,
-	barcode int,
+	productNum bigint,
+	barcode bigint,
 	storeNum int,
-quantity int,
+	quantity int,
 	PRIMARY KEY (productNum, barcode, storeNum),
 	FOREIGN KEY (productNum, barcode) REFERENCES ITEMS(productNum, barcode) on delete RESTRICT on update CASCADE,
 	FOREIGN KEY (storeNum) REFERENCES LOCATION(storeNum) on delete RESTRICT on update CASCADE
