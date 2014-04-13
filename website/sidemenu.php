@@ -22,7 +22,7 @@ if(isset($_COOKIE["username"])){
       {
 	 $manager = TRUE;
 	 echo "<li><a href='show_orders.php'>Orders</a></li>";
-	 echo "<li><a href='EM_info.php'>People Information Page</a></li>";
+	 echo "<li><a href='EM_info.php'>People</a></li>";
 	 echo "<li><a href=\"located_choose.php\">Stock</a></li>";
       }
       else if(mysql_num_rows($result3) != 0)
