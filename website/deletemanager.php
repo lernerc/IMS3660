@@ -17,16 +17,16 @@ if (isset($_COOKIE["username"])) {
    if(mysql_query($sql,$conn))
    {
       if(mysql_affected_rows() > 0)
-	 echo "<h3> Manager removed!</h3>";
+	 echo "<h1> Manager removed!</h1>";
       else
-	 echo "<h3>Manager does not exist</h3>";
+	 echo "<h1>Manager does not exist</h1>";
    } else {
       $err = mysql_errno();
       if($err == 1062)
       {
 	 echo "<p>Manager $_POST[username] does not exist!</p>";
       } else if($err == 1451) {
-	 echo "<h3>Manager $_POST[username] has existing Relationships, so you cannot delete it</h3>";
+	 echo "<h1>Manager $_POST[username] has existing Relationships, so you cannot delete it</h1>";
       } else {
 	 echo "error number $err";
       }
@@ -35,7 +35,7 @@ if (isset($_COOKIE["username"])) {
    echo "<a href=\"EM_info.php\">Return</a> to People Page.";
    echo "<br><a href=\"main.php\">Return</a> to Home Page.";
 } else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+   echo "<h1>You are not logged in!</h1><p> <a href=\"login.php\">Login First</a></p>";
 
 }
 echo "</td>";

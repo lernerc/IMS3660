@@ -23,7 +23,7 @@ if (isset($_COOKIE["username"])) {
    $sql = "insert into MANAGER values ('$_POST[username]','$mid')";
    if(mysql_query($sql,$conn))
    {
-      echo "<h3> Manager added!</h3>";
+      echo "<h1> Manager added!</h1>";
 
    } else {
       $err = mysql_errno();
@@ -39,7 +39,7 @@ if (isset($_COOKIE["username"])) {
    echo "<a href=\"EM_info.php\">Return</a> to People Page.";
    echo "<br><a href=\"main.php\">Return</a> to Home Page.";
 } else {
-   echo "<h3>You are not logged in!</h3><p> <a href=\"login.php\">Login First</a></p>";
+   echo "<h1>You are not logged in!</h1><p> <a href=\"login.php\">Login First</a></p>";
 
 }
 echo "</td>";
