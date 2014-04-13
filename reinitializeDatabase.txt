@@ -78,8 +78,8 @@ CREATE TABLE PROCESS
 
 CREATE TABLE ITEMS
 (
-	productNum int,
-	barcode int,
+	productNum bigint,
+	barcode bigint,
 	name varchar(30),
 	description text,
 	salesPrice int,
@@ -90,8 +90,8 @@ CREATE TABLE ITEMS
 CREATE TABLE CONTAINS
 (
 	cartID int,
-	productNum int,
-	barcode int,
+	productNum bigint,
+	barcode bigint,
 	quantity int,
 	PRIMARY KEY (cartID, productNum, barcode),
 	FOREIGN KEY (cartID) REFERENCES CART(cartID) on delete RESTRICT on update CASCADE,
