@@ -34,5 +34,10 @@ Changing my sql database password
      alter table TABLE_NAME modify VARIABLE_NAME VARIABLE_TYPE;
      
      
+Initializing a database from a file
+    mysql -u username -p password databasename < file_name;
+
+or from within mysql and using a database
+    mysql> \. file_name
 
 rsync -rtv source destination
