@@ -113,17 +113,16 @@ if($manager == TRUE)
       echo "<td valign='top'>$val[5]</td><td>";
       $sql1 = "select * from STORE where storeNum='$val[0]'";
       $result1 = mysql_query($sql1,$conn);
+      $isStore = false;
       while($val1 = mysql_fetch_row($result1))
       {
 	 echo "<form action='deletestore.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
 	 echo "<input type=submit name='submit' value='Delete Store' >";
 	 echo "</form>";
+	 $isStore=true;
       }
-      $sql3 = "select * from LOCATION where not exists (select * from STORE where storeNum='$val[0]')";
-      $result3 = mysql_query($sql3,$conn);
-      if(mysql_num_rows($result3) != 0)
-      {
+      if(! $isStore) {
 	 echo "<form action='insertstore.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
 	 echo "<input type=submit name='submit' value='Assign Store'>";
@@ -131,17 +130,16 @@ if($manager == TRUE)
       }
       $sql2 = "select * from WAREHOUSE where storeNum='$val[0]'";
       $result2 = mysql_query($sql2,$conn);
+      $isWarehouse=false;
       while($val2 = mysql_fetch_row($result2))
       {
 	 echo "<form action='deletewarehouse.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
 	 echo "<input type=submit name='submit' value='Delete Warehouse'>";
 	 echo "</form>";
+	 $isWarehouse=true;
       }
-      $sql4 = "select * from LOCATION where not exists (select * from WAREHOUSE where storeNum='$val[0]')";
-      $result4 = mysql_query($sql4,$conn);
-      if(mysql_num_rows($result4) != 0)
-      {
+      if(! $isWarehouse) {
 	 echo "<form action='insertwarehouse.php' method=post>";
 	 echo "<input type=hidden value='$val[0]' name='sNum'>";
 	 echo "<input type=submit name='submit' value='Assign Warehouse'>";
