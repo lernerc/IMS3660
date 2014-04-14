@@ -200,7 +200,7 @@ INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
 VALUES ('0001456231','0012345670','005','800');
 
 INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
-VALUES ('9100019272','0012345682','003','80');
+VALUES ('9100019272','0012345682','003','88');
 
 INSERT INTO LOCATED (productNum, barcode, storeNum, quantity)
 VALUES ('9100019272','0012345682','004','74');
@@ -307,23 +307,23 @@ VALUES ('2','1');
 INSERT INTO PROCESS (cartID, orderID)
 VALUES ('4','2');
 
-update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+update CART set totalPrice =(select sum(salesPrice*quantity)
 from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
 I.barcode=C.barcode and C.cartID='1') where CART.cartID='1';
 
-update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+update CART set totalPrice =(select sum(salesPrice*quantity)
 from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
 I.barcode=C.barcode and C.cartID='2') where CART.cartID='2';
 
-update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+update CART set totalPrice =(select sum(salesPrice*quantity)
 from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
 I.barcode=C.barcode and C.cartID='3') where CART.cartID='3';
 
-update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+update CART set totalPrice =(select sum(salesPrice*quantity)
 from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
 I.barcode=C.barcode and C.cartID='4') where CART.cartID='4';
 
-update CART set totalPrice =(select sum(salesPrice*quantity) totalPrice
+update CART set totalPrice =(select sum(salesPrice*quantity)
 from ITEMS I, CONTAINS C where I.productNum=C.productNum and 
 I.barcode=C.barcode and C.cartID='5') where CART.cartID='5';
 
