@@ -129,7 +129,7 @@ if($manager == TRUE || $employee == TRUE)
 	       echo "<form action=\"insertprocess.php\" method=post>";
 	       echo "<td valign='top' align='center'><input type='hidden' name='cart' value='$val[0]'><input type=hidden name='order' value='$oid'><input type=submit name='submit' value='Process'></td>";
 	       echo "</form>";
-	    }
+	    } 
 	 }
 	 echo "<form action='view_cart.php' method=post>";
 	 echo "<td valign='top'><input type='hidden' name='id' value='$val[0]'><input type=submit name='submit' value='View Cart'></td>";
