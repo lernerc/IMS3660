@@ -9,7 +9,7 @@ $sql ="";
 if($employee || $manager) {
    $sql = "select * from LOCATION where name LIKE '%$_POST[loc]%' or address LIKE '%$_POST[loc]%' or storeNum LIKE '%$_POST[loc]%'";
 } else {
-   $sql = "select * from LOCATION Q where exists (select * from STORE S where exists (select * from LOCATION L where L.storeNum=S.storeNum and name LIKE '%lethbridge%' or address LIKE '%lethbridge%' or L.storeNum LIKE '%lethbridge%') and Q.storeNum=S.storeNum)";
+   $sql = "select * from LOCATION Q where exists (select * from STORE S where exists (select * from LOCATION L where L.storeNum=S.storeNum and name LIKE '%$_POST[loc]%' or address LIKE '%$_POST[loc]%' or L.storeNum LIKE '%$_POST[loc]%') and Q.storeNum=S.storeNum)";
 }
 //echo $sql;
 $result = mysql_query($sql, $conn);
